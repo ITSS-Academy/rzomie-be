@@ -1,0 +1,528 @@
+{
+    "personalInfo": {
+        "name": "Nguyễn Văn A",
+        "title": "Senior Software Engineer",
+        "email": "nguyenvana@email.com",
+        "phone": "+84 123 456 789",
+        "location": "Hà Nội, Việt Nam",
+        "website": "https://nguyenvana.dev",
+        "linkedin": "https://linkedin.com/in/nguyenvana",
+        "github": "https://github.com/nguyenvana",
+        "avatar": ""
+    },
+    "summary": "Experienced software engineer with 5+ years of expertise in full-stack web development, specializing in JavaScript/TypeScript, React, Node.js, and cloud technologies. Proven track record of delivering scalable applications and leading development teams. Passionate about clean code, performance optimization, and mentoring junior developers.",
+    "experience": [
+        {
+            "company": "TechCorp Vietnam",
+            "position": "Senior Software Engineer",
+            "location": "Hà Nội, Việt Nam",
+            "startDate": "2021-03",
+            "endDate": "Present",
+            "current": true,
+            "description": "<ul><li><p>Experienced software <a href='https://facebook.com'><strong><em><s><u>hhehe</u></s></em></strong></a> with 5+ years of expertise in full-stack web development, specializing in JavaScript/TypeScript, React, Node.js, and cloud technologies. Proven track record of delivering scalable applications and leading development teams. Passionate about clean code, performance optimization, and mentoring junior developers.</p></li><li><p>sdsd</p></li></ul>"
+        },
+        {
+            "company": "StartupXYZ",
+            "position": "Full Stack Developer",
+            "location": "TP. Hồ Chí Minh, Việt Nam",
+            "startDate": "2019-06",
+            "endDate": "2021-02",
+            "current": false,
+            "description": "Developed and maintained multiple web applications using modern technologies. Built real-time dashboard monitoring 50+ metrics using React and WebSocket. Integrated payment gateways increasing revenue by 25%. Reduced bug reports by 60% through comprehensive testing."
+        },
+        {
+            "company": "Digital Solutions Inc",
+            "position": "Frontend Developer",
+            "location": "Đà Nẵng, Việt Nam",
+            "startDate": "2018-01",
+            "endDate": "2019-05",
+            "current": false,
+            "description": "Focused on creating responsive and user-friendly web interfaces. Developed 10+ responsive applications using React and Vue.js. Improved website loading speed by 35% through optimization. Implemented WCAG 2.1 compliance for accessibility."
+        },
+        {
+            "company": "Digital Solutions Inc",
+            "position": "Frontend Developer",
+            "location": "Đà Nẵng, Việt Nam",
+            "startDate": "2018-01",
+            "endDate": "2019-05",
+            "current": false,
+            "description": "Focused on creating responsive and user-friendly web interfaces. Developed 10+ responsive applications using React and Vue.js. Improved website loading speed by 35% through optimization. Implemented WCAG 2.1 compliance for accessibility."
+        },
+        {
+            "company": "Digital Solutions Inc",
+            "position": "Frontend Developer",
+            "location": "Đà Nẵng, Việt Nam",
+            "startDate": "2018-01",
+            "endDate": "2019-05",
+            "current": false,
+            "description": "Focused on creating responsive and user-friendly web interfaces. Developed 10+ responsive applications using React and Vue.js. Improved website loading speed by 35% through optimization. Implemented WCAG 2.1 compliance for accessibility."
+        },
+        {
+            "company": "Digital Solutions Inc",
+            "position": "Frontend Developer",
+            "location": "Đà Nẵng, Việt Nam",
+            "startDate": "2018-01",
+            "endDate": "2019-05",
+            "current": false,
+            "description": "Focused on creating responsive and user-friendly web interfaces. Developed 10+ responsive applications using React and Vue.js. Improved website loading speed by 35% through optimization. Implemented WCAG 2.1 compliance for accessibility."
+        }
+    ],
+    "education": [
+        {
+            "degree": "Master of Software Engineering",
+            "institution": "FPT University",
+            "location": "Hà Nội, Việt Nam",
+            "startDate": "2018-09",
+            "gpa": "3.9/4.0",
+            "description": "Specialized in Advanced Software Architecture and AI/ML applications. Thesis: 'Microservices Architecture for Large-Scale Web Applications'."
+        },
+        {
+            "degree": "Bachelor of Computer Science",
+            "institution": "Đại học Bách Khoa Hà Nội",
+            "location": "Hà Nội, Việt Nam",
+            "startDate": "2014-09",
+            "endDate": "2018-06",
+            "gpa": "3.8/4.0",
+            "description": "Graduated Magna Cum Laude. Relevant coursework: Data Structures, Algorithms, Database Systems, Software Engineering."
+        }
+    ],
+    "skills": [
+        {
+            "category": "Programming Languages",
+            "level": "Expert",
+            "items": [
+                "JavaScript (ES6+)",
+                "TypeScript",
+                "Python",
+                "Java",
+                "C++",
+                "SQL"
+            ],
+            "description": "Proficient in modern programming languages with focus on web development and system programming."
+        },
+        {
+            "category": "Frontend Technologies",
+            "level": "Beginner",
+            "items": [
+                "React",
+                "Vue.js",
+                "Angular",
+                "HTML5",
+                "CSS3",
+                "Sass/SCSS",
+                "Webpack",
+                "Vite"
+            ],
+            "description": "Expertise in modern frontend frameworks and build tools for scalable web applications."
+        },
+        {
+            "category": "Backend Technologies",
+            "level": "Amateur",
+            "items": [
+                "Node.js",
+                "Express.js",
+                "NestJS",
+                "Django",
+                "Spring Boot",
+                "GraphQL",
+                "REST APIs"
+            ],
+            "description": "Strong backend development skills with experience in microservices architecture."
+        },
+        {
+            "category": "Cloud & DevOps",
+            "level": "Proficient",
+            "items": [
+                "AWS",
+                "Docker",
+                "Kubernetes",
+                "MongoDB",
+                "PostgreSQL",
+                "Redis",
+                "Firebase"
+            ],
+            "description": "Experience with cloud platforms and containerization for scalable deployments."
+        }
+    ],
+    "projects": [
+        {
+            "title": "E-commerce Platform",
+            "description": "Full-stack e-commerce platform with real-time inventory management, payment integration, and admin dashboard. Serves 50,000+ users with 99.9% uptime.",
+            "technologies": [
+                "React",
+                "Node.js",
+                "MongoDB",
+                "AWS",
+                "Docker",
+                "Stripe API"
+            ],
+            "url": "https://demo-ecommerce.nguyenvana.dev",
+            "github": "https://github.com/nguyenvana/ecommerce-platform",
+            "startDate": "2022-01",
+            "endDate": "2022-08"
+        },
+        {
+            "title": "Real-time Chat Application",
+            "description": "Scalable chat application with WebSocket support, file sharing, and group messaging. Handles 10,000+ concurrent users.",
+            "technologies": [
+                "Vue.js",
+                "Socket.io",
+                "Express.js",
+                "PostgreSQL",
+                "Redis"
+            ],
+            "url": "https://chat-app.nguyenvana.dev",
+            "github": "https://github.com/nguyenvana/realtime-chat",
+            "startDate": "2021-09",
+            "endDate": "2021-12"
+        },
+        {
+            "title": "Task Management System",
+            "description": "Agile project management tool with Kanban boards, time tracking, and team collaboration features. Used by 20+ companies.",
+            "technologies": [
+                "Angular",
+                "NestJS",
+                "GraphQL",
+                "MongoDB",
+                "Docker"
+            ],
+            "url": "https://taskmanager.nguyenvana.dev",
+            "github": "https://github.com/nguyenvana/task-manager",
+            "startDate": "2021-03",
+            "endDate": "2021-08"
+        },
+        {
+            "title": "Mobile Banking App",
+            "description": "Cross-platform mobile banking application with biometric authentication, QR payments, and real-time transaction monitoring. Deployed to 200,000+ users.",
+            "technologies": [
+                "React Native",
+                "TypeScript",
+                "Firebase",
+                "Node.js",
+                "PostgreSQL",
+                "AWS Lambda"
+            ],
+            "url": "https://play.google.com/store/apps/bankingapp",
+            "github": "https://github.com/nguyenvana/mobile-banking",
+            "startDate": "2023-01",
+            "endDate": "2023-09"
+        },
+        {
+            "title": "AI-Powered Code Review Tool",
+            "description": "Machine learning tool that automatically reviews code quality, suggests improvements, and detects potential bugs. Integrated with GitHub and GitLab.",
+            "technologies": [
+                "Python",
+                "TensorFlow",
+                "FastAPI",
+                "Docker",
+                "Kubernetes",
+                "GitHub API"
+            ],
+            "url": "https://codereview-ai.nguyenvana.dev",
+            "github": "https://github.com/nguyenvana/ai-code-review",
+            "startDate": "2023-03",
+            "endDate": "2023-07"
+        },
+        {
+            "title": "Blockchain Voting System",
+            "description": "Decentralized voting platform built on Ethereum with smart contracts for transparent and secure elections. Supports multiple voting methods.",
+            "technologies": [
+                "Solidity",
+                "React",
+                "Web3.js",
+                "Ethereum",
+                "Truffle",
+                "MetaMask"
+            ],
+            "url": "https://blockchain-vote.nguyenvana.dev",
+            "github": "https://github.com/nguyenvana/blockchain-voting",
+            "startDate": "2022-09",
+            "endDate": "2023-01"
+        },
+        {
+            "title": "IoT Smart Home System",
+            "description": "Complete IoT ecosystem for smart home automation with sensor monitoring, device control, and energy optimization. Supports 50+ device types.",
+            "technologies": [
+                "Arduino",
+                "Raspberry Pi",
+                "Python",
+                "MQTT",
+                "InfluxDB",
+                "Grafana"
+            ],
+            "url": "https://smarthome.nguyenvana.dev",
+            "github": "https://github.com/nguyenvana/iot-smarthome",
+            "startDate": "2022-05",
+            "endDate": "2022-11"
+        },
+        {
+            "title": "Video Streaming Platform",
+            "description": "Netflix-like streaming service with content management, user subscriptions, and adaptive bitrate streaming. Handles 1M+ hours of content.",
+            "technologies": [
+                "Next.js",
+                "Node.js",
+                "FFmpeg",
+                "AWS S3",
+                "CloudFront",
+                "Stripe"
+            ],
+            "url": "https://streamflix.nguyenvana.dev",
+            "github": "https://github.com/nguyenvana/video-streaming",
+            "startDate": "2022-12",
+            "endDate": "2023-05"
+        },
+        {
+            "title": "Desktop Trading Application",
+            "description": "High-frequency trading desktop app with real-time market data, algorithmic trading strategies, and risk management tools.",
+            "technologies": [
+                "Electron",
+                "TypeScript",
+                "Chart.js",
+                "WebSocket",
+                "C++",
+                "REST APIs"
+            ],
+            "github": "https://github.com/nguyenvana/trading-desktop",
+            "startDate": "2021-01",
+            "endDate": "2021-06"
+        },
+        {
+            "title": "Data Analytics Dashboard",
+            "description": "Business intelligence platform with real-time data visualization, custom reports, and predictive analytics. Used by 100+ enterprises.",
+            "technologies": [
+                "React",
+                "D3.js",
+                "Python",
+                "Apache Spark",
+                "Elasticsearch",
+                "Docker"
+            ],
+            "url": "https://analytics.nguyenvana.dev",
+            "github": "https://github.com/nguyenvana/data-analytics",
+            "startDate": "2020-09",
+            "endDate": "2021-02"
+        },
+        {
+            "title": "Multiplayer Game Engine",
+            "description": "2D multiplayer game engine with physics simulation, real-time synchronization, and modding support. Powers 10+ indie games.",
+            "technologies": [
+                "C++",
+                "OpenGL",
+                "Box2D",
+                "WebAssembly",
+                "Socket.io",
+                "CMake"
+            ],
+            "url": "https://gameengine.nguyenvana.dev",
+            "github": "https://github.com/nguyenvana/multiplayer-engine",
+            "startDate": "2020-03",
+            "endDate": "2020-12"
+        },
+        {
+            "title": "Open Source API Gateway",
+            "description": "High-performance API gateway with rate limiting, authentication, load balancing, and monitoring. Downloaded 50,000+ times on npm.",
+            "technologies": [
+                "Node.js",
+                "Redis",
+                "Nginx",
+                "Prometheus",
+                "Docker",
+                "Kubernetes"
+            ],
+            "url": "https://api-gateway.nguyenvana.dev",
+            "github": "https://github.com/nguyenvana/api-gateway",
+            "startDate": "2019-09",
+            "endDate": "2020-02"
+        },
+        {
+            "title": "DevOps Automation Platform",
+            "description": "Complete CI/CD platform with automated testing, deployment pipelines, infrastructure as code, and monitoring. Serves 500+ projects.",
+            "technologies": [
+                "Go",
+                "Docker",
+                "Kubernetes",
+                "Terraform",
+                "Jenkins",
+                "Ansible"
+            ],
+            "url": "https://devops.nguyenvana.dev",
+            "github": "https://github.com/nguyenvana/devops-platform",
+            "startDate": "2019-01",
+            "endDate": "2019-08"
+        }
+    ],
+    "awards": [
+        {
+            "title": "AWS Certified Developer - Associate",
+            "issuer": "Amazon Web Services",
+            "dateReceived": "2022-03",
+            "expiryDate": "2025-03",
+            "description": "Demonstrates expertise in developing and maintaining applications on AWS platform.",
+            "verificationUrl": "https://www.credly.com/badges/aws-developer-associate"
+        },
+        {
+            "title": "MongoDB Certified Developer",
+            "issuer": "MongoDB University",
+            "dateReceived": "2021-08",
+            "expiryDate": "2024-08",
+            "description": "Certified in MongoDB database development and administration.",
+            "verificationUrl": "https://university.mongodb.com/certification"
+        },
+        {
+            "title": "Employee of the Year 2022",
+            "issuer": "TechCorp Vietnam",
+            "dateReceived": "2022-12",
+            "description": "Recognized for outstanding performance, leadership, and contribution to team success."
+        }
+    ],
+    "languages": [
+        {
+            "language": "Vietnamese",
+            "level": "Native/Bilingual",
+            "description": "Native speaker with excellent written and verbal communication skills."
+        },
+        {
+            "language": "English",
+            "level": "Fluent",
+            "certification": "IELTS",
+            "score": "8.0",
+            "description": "Fluent in business and technical communication. Used daily in international projects."
+        },
+        {
+            "language": "Japanese",
+            "level": "Conversation",
+            "certification": "JLPT N3",
+            "score": "N3",
+            "description": "Conversational level with focus on business communication. Currently studying for N2."
+        }
+    ],
+    "interests": [
+        {
+            "category": "Technology",
+            "items": [
+                "Open Source",
+                "AI/ML",
+                "Blockchain",
+                "IoT"
+            ],
+            "description": "Active contributor to open source projects and passionate about emerging technologies."
+        },
+        {
+            "category": "Sports",
+            "items": [
+                "Football",
+                "Swimming",
+                "Cycling"
+            ],
+            "description": "Regular participant in local football leagues and swimming competitions."
+        },
+        {
+            "category": "Arts",
+            "items": [
+                "Photography",
+                "Guitar",
+                "Reading"
+            ],
+            "description": "Enjoy capturing moments through photography and playing acoustic guitar in free time."
+        }
+    ],
+    "courses": [
+        {
+            "title": "Advanced React Patterns",
+            "provider": "Frontend Masters",
+            "duration": "40 hours",
+            "completionDate": "2023-02",
+            "certificateUrl": "https://frontendmasters.com/certificates/advanced-react",
+            "description": "Deep dive into advanced React patterns, performance optimization, and state management."
+        },
+        {
+            "title": "AWS Solutions Architect",
+            "provider": "A Cloud Guru",
+            "duration": "60 hours",
+            "completionDate": "2022-11",
+            "certificateUrl": "https://acloudguru.com/certificates/aws-solutions-architect",
+            "description": "Comprehensive training on AWS architecture, security, and best practices."
+        },
+        {
+            "title": "Machine Learning Fundamentals",
+            "provider": "Coursera",
+            "duration": "80 hours",
+            "completionDate": "2022-05",
+            "certificateUrl": "https://coursera.org/certificates/ml-fundamentals",
+            "description": "Introduction to machine learning algorithms, data preprocessing, and model evaluation."
+        }
+    ],
+    "organizations": [
+        {
+            "name": "Vietnam Software Engineers Association",
+            "role": "Active Member",
+            "startDate": "2020-01",
+            "current": true,
+            "description": "Participate in technical workshops, mentoring programs, and knowledge sharing events."
+        },
+        {
+            "name": "Code for Vietnam",
+            "role": "Volunteer Developer",
+            "startDate": "2019-06",
+            "endDate": "2021-12",
+            "current": false,
+            "description": "Contributed to open source projects for social good. Helped develop educational platforms for underprivileged communities."
+        }
+    ],
+    "publications": [
+        {
+            "title": "Microservices Architecture Patterns for Scalable Web Applications",
+            "authors": [
+                "Nguyễn Văn A",
+                "Trần Thị B"
+            ],
+            "venue": "Journal of Software Engineering",
+            "date": "2023-01",
+            "doi": "10.1234/jse.2023.001",
+            "url": "https://journal-se.com/articles/microservices-patterns",
+            "description": "Research paper on design patterns and best practices for microservices architecture."
+        },
+        {
+            "title": "Performance Optimization Techniques in Modern Web Applications",
+            "authors": [
+                "Nguyễn Văn A"
+            ],
+            "venue": "Tech Blog - Medium",
+            "date": "2022-09",
+            "url": "https://medium.com/@nguyenvana/performance-optimization-techniques",
+            "description": "Technical article discussing various performance optimization strategies for web applications."
+        }
+    ],
+    "references": [
+        {
+            "name": "Lê Văn C",
+            "title": "Senior Engineering Manager",
+            "company": "TechCorp Vietnam",
+            "email": "levanc@techcorp.vn",
+            "phone": "+84 987 654 321",
+            "relationship": "Direct Supervisor"
+        },
+        {
+            "name": "Phạm Thị D",
+            "title": "Lead Developer",
+            "company": "StartupXYZ",
+            "email": "phamthid@startupxyz.com",
+            "phone": "+84 876 543 210",
+            "relationship": "Former Colleague"
+        }
+    ],
+    "declaration": {
+        "statement": "I hereby declare that all the information provided above is true and correct to the best of my knowledge and belief.",
+        "place": "Hà Nội, Việt Nam",
+        "date": "2024-01-15",
+        "signature": "Nguyễn Văn A"
+    },
+    "customSections": [
+        {
+            "title": "Technical Leadership",
+            "subtitle": "   ",
+            "content": "Led cross-functional teams of 5-8 members in agile environments. Mentored 10+ junior developers through code reviews, pair programming, and technical guidance. Established coding standards and best practices that improved team productivity by 30%.",
+            "url": "https://nguyenvana.dev/leadership"
+        }
+    ]
+}

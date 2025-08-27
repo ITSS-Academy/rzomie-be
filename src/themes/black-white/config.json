@@ -1,0 +1,55 @@
+{
+    "id": 1,
+    "name": "Black & White",
+    "displayName": "Black & White",
+    "description": "Clean and minimal black and white theme with professional layout. All CV blocks supported, with clear section titles and modern grid layout.",
+    "author": "FormCV",
+    "version": "1.2.1",
+    "preview": "preview.png",
+    "sectionOrder": [
+        "personal",
+        "summary",
+        "experience",
+        "education",
+        "skills",
+        "projects",
+        "organizations",
+        "languages",
+        "publications",
+        "awards",
+        "courses",
+        "interests",
+        "references",
+        "customSections",
+        "declaration"
+    ],
+    "css": {
+        "fonts": {
+            "primary": "Inter, sans-serif"
+        },
+        "fontSizes": {
+            "base": "11px",
+            "small": "10px",
+            "large": "14px",
+            "heading": "24px"
+        },
+        "fontWeights": {
+            "normal": 400,
+            "bold": 700
+        },
+        "colors": {
+            "primary": "#000000",
+            "secondary": "#333333",
+            "background": "#ffffff",
+            "accent": "#cccccc"
+        },
+        "spacing": {
+            "section": "20px",
+            "item": "12px",
+            "container": "20mm"
+        },
+        "padding": {
+            "container": "20mm"
+        }
+    }
+}
