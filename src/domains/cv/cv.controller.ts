@@ -9,7 +9,7 @@ export class CvController {
 
   @Post('/gen-theme')
   genTheme(@Body() data: any){
-    return this.cvService.renderCvHtml(data);
+    return this.cvService.renderCvHtml(data.data);
   }
 
 }

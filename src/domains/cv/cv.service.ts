@@ -20,6 +20,7 @@ export class CvService {
   async renderCvHtml(createCvDto: any): Promise<string> {
     let theme!:any
     let html!: any
+    console.log(createCvDto);
 
     const template = await loadThemeHtml('black-white');
     const compiled = Handlebars.compile(template);
@@ -27,12 +28,12 @@ export class CvService {
     if(!createCvDto.theme){
       theme = await loadThemeConfig('black-white');
       html = compiled({
-        ...createCvDto.cvData,
+        ...createCvDto,
         theme
       })
     } else {
       html = compiled({
-        ...createCvDto.cvData,
+        ...createCvDto,
         theme: createCvDto.theme
       })
     }
@@ -44,6 +45,6 @@ export class CvService {
     // Lấy lại HTML đã render (có thể đã apply CSS, JS...)
     const renderedHtml = await page.content();
     await browser.close();
-    return renderedHtml;
+    return JSON.stringify(renderedHtml);
   }
 }
