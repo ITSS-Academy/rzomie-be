@@ -3,15 +3,12 @@ import {
   Get,
   Post,
   Body,
-  Patch,
   Param,
-  Delete,
   Req,
   Put,
+  Res,
 } from '@nestjs/common';
 import { CvService } from './cv.service';
-import { CreateCvDto } from './dto/create-cv.dto';
-import { UpdateCvDto } from './dto/update-cv.dto';
 
 @Controller('cv')
 export class CvController {
@@ -19,18 +16,41 @@ export class CvController {
 
   @Post('/gen-theme')
   genTheme(@Body() data: any) {
-    return this.cvService.renderCvHtml(data.data);
+    // Make sure to pass through any ID property for screenshot generation
+    return this.cvService.renderCvHtml(data.data.data);
   }
+
+  @Post('/export-pdf')
+async exportPdf(@Body() data: any, @Res() res: any) {
+  try {
+    const pdfBuffer = await this.cvService.exportCvToPdf(data.html);
+    
+    
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Content-Disposition', 'attachment; filename=cv.pdf');
+    
+    return res.send(pdfBuffer);
+  } catch (error) {
+    console.error('Error in exportPdf:', error);
+    return res.status(500).json({ error: error.message });
+  }
+}
 
   @Get('/get-all-cv-data')
   getAllCvData(@Req() req: any) {
     return this.cvService.getAllCvData(req.user.uid);
   }
 
+  @Get('/get-default-cvs')
+  getDefaultCvs() {
+    return this.cvService.getBaseCvs();
+  }
+
   @Get(':id')
   getById(@Param('id') id: number, @Req() req: any) {
     return this.cvService.getById(id, req.user.uid);
   }
+
 
   @Put(':id')
   update(@Param('id') id: number, @Body() updateCvDto: any, @Req() req: any) {

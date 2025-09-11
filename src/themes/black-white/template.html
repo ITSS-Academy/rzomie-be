@@ -1016,7 +1016,7 @@
         <!-- Declaration -->
         {{#if declaration}}
         <div class="declaration-section">
-            <div class="declaration-text">{{declaration.statement}}</div>
+            <div class="declaration-text">{{{richText declaration.statement}}}</div>
             <div class="declaration-footer">
                 <div class="declaration-place-date">
                     {{#if declaration.place}}{{declaration.place}}, {{/if}}{{declaration.date}}
