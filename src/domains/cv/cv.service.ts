@@ -15,7 +15,7 @@ export class CvService {
     registerHandlebarsHelpers();
   }
 
-  async renderCvHtml(createCvDto: any): Promise<string> {
+  async renderCvHtml(createCvDto: any, id: number): Promise<string> {
     let theme!: any;
     let html!: any;
 
@@ -39,9 +39,9 @@ export class CvService {
     const browser = await puppeteer.launch({ headless: true });
     const page = await browser.newPage();
     await page.setContent(html, { waitUntil: 'networkidle0' });
-    
+
     // Capture screenshot of the first page if cvId is provided
-    if (createCvDto.id) {
+    if (id) {
       try {
         // Set viewport to A4 size for consistent screenshot
         await page.setViewport({
@@ -49,16 +49,16 @@ export class CvService {
           height: 1123, // A4 height in pixels at 96 DPI
           deviceScaleFactor: 2, // Higher resolution for better quality
         });
-        
+
         // Capture screenshot
-        const screenshot = await page.screenshot({ 
+        const screenshot = await page.screenshot({
           type: 'jpeg',
           quality: 90,
-          fullPage: false // Only capture the viewport (first page)
+          fullPage: false, // Only capture the viewport (first page)
         });
-        
+
         // Upload to Supabase Storage
-        const fileName = `cv-thumbnails/${createCvDto.id}.jpg`;
+        const fileName = `cv-thumbnails/${id}.jpg`;
         const { data: uploadData, error: uploadError } = await this.supabaseService.supabase
           .storage
           .from('cv-images')
@@ -71,26 +71,27 @@ export class CvService {
           console.error('Error uploading CV screenshot:', uploadError);
         } else {
           // Get public URL for the uploaded image
-          const { data: urlData } = this.supabaseService.supabase
-            .storage
+          const { data: urlData } = this.supabaseService.supabase.storage
             .from('cv-images')
             .getPublicUrl(fileName);
-            
+
+          console.log(urlData);
+
           // Update the CV record with the thumbnail URL
           await this.supabaseService.supabase
             .from('cv-data')
-            .update({ 
+            .update({
               thumbnailUrl: urlData.publicUrl,
-              update_time: new Date().toISOString()
+              update_time: new Date(),
             })
-            .eq('id', createCvDto.id);
+            .eq('id', id);
         }
       } catch (error) {
         // Log error but don't interrupt the main CV rendering process
         console.error('Error generating CV thumbnail:', error);
       }
     }
-    
+
     // Lấy lại HTML đã render (có thể đã apply CSS, JS...)
     const renderedHtml = await page.content();
     await browser.close();
@@ -98,7 +99,7 @@ export class CvService {
   }
 
   async exportCvToPdf(cvHtml: any) {
-    const html = cvHtml
+    const html = cvHtml;
     // Render HTML to PDF using Puppeteer
     const browser = await puppeteer.launch({ headless: true });
     const page = await browser.newPage();
@@ -129,7 +130,7 @@ export class CvService {
   async getAllCvData(userId: string) {
     const { data, error } = await this.supabaseService.supabase
       .from('cv-data')
-      .select('id, cvName, cvTheme, create_date, update_time')
+      .select('id, cvName, cvTheme, create_date, update_time, thumbnailUrl')
       .eq('userId', userId);
     if (error) {
       throw new HttpException(
@@ -144,13 +145,16 @@ export class CvService {
     const findCv = await this.getById(id, userId);
     const newCvData = { ...findCv.cvData, ...updateCvDto };
     if (!findCv) {
-      throw new HttpException(`CV with ID ${id} not found`, HttpStatus.BAD_REQUEST);
+      throw new HttpException(
+        `CV with ID ${id} not found`,
+        HttpStatus.BAD_REQUEST,
+      );
     }
     const { data, error } = await this.supabaseService.supabase
       .from('cv-data')
-      .update({cvData: newCvData})
+      .update({ cvData: newCvData })
       .eq('id', id)
-      .eq('userId', userId)
+      .eq('userId', userId);
     if (error) {
       throw new HttpException(
         `Error updating CV with ID ${id}: ${error.message}`,
