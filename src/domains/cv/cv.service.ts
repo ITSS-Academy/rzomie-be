@@ -19,11 +19,11 @@ export class CvService {
     let theme!: any;
     let html!: any;
 
-    const template = await loadThemeHtml('black-white');
+    const template = await loadThemeHtml('pastel-green');
     const compiled = Handlebars.compile(template);
 
     if (!createCvDto.theme) {
-      theme = await loadThemeConfig('black-white');
+      theme = await loadThemeConfig('pastel-green');
       html = compiled({
         ...createCvDto,
         theme,
@@ -58,7 +58,7 @@ export class CvService {
         });
         
         // Upload to Supabase Storage
-        const fileName = `cv-thumbnails/${createCvDto.id}-${Date.now()}.jpg`;
+        const fileName = `cv-thumbnails/${createCvDto.id}.jpg`;
         const { data: uploadData, error: uploadError } = await this.supabaseService.supabase
           .storage
           .from('cv-images')
