@@ -1,0 +1,237 @@
+{
+  "name": "oxford-green",
+  "displayName": "Oxford Green",
+  "description": "A clean, elegant resume theme with modern serif fonts and rich green accents — ideal for professionals in business, finance, and project management.",
+  "author": "FormCV",
+  "version": "1.0.0",
+  "preview": "preview.png",
+  "category": "professional",
+  "sectionOrder": [
+    "personal",
+    "summary",
+    "experience",
+    "education",
+    "skills",
+    "projects",
+    "languages",
+    "awards",
+    "courses",
+    "organizations",
+    "publications",
+    "interests",
+    "references",
+    "customSections",
+    "declaration"
+  ],
+  "css": {
+    "fonts": {
+      "primary": "Inter, Arial, sans-serif",
+      "heading": "Inter, Arial, sans-serif",
+      "monospace": "Courier New, monospace"
+    },
+    "fontSizes": {
+      "base": "12px",
+      "small": "11px",
+      "large": "14px",
+      "heading": "24px",
+      "sectionTitle": "16px",
+      "itemTitle": "14px",
+      "body": "12px",
+      "h1": "24px",
+      "h2": "16px"
+    },
+    "fontWeights": {
+      "normal": 400,
+      "bold": 700,
+      "medium": 500
+    },
+    "colors": {
+      "primary": "#295c3c",
+      "secondary": "#6b7280",
+      "background": "#f7f8fa",
+      "surface": "#ffffff",
+      "accent": "#295c3c",
+      "text": "#222c3a",
+      "muted": "#6b7280"
+    },
+    "spacing": {
+      "lineHeight": "1.5",
+      "section": "24px",
+      "item": "12px",
+      "container": "20mm",
+      "line": "1.5"
+    },
+    "padding": {
+      "container": "0 32px 32px 32px",
+      "section": "24px",
+      "item": "12px"
+    },
+    "customization": {
+      "fontSize": {
+        "type": "relative",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "default": 0,
+        "unit": "px",
+        "scaling": {
+          "enabled": true,
+          "description": "When font size is changed, all font sizes will be adjusted proportionally"
+        }
+      },
+      "fontWeight": {
+        "type": "absolute",
+        "min": 400,
+        "max": 800,
+        "step": 100,
+        "default": 400
+      },
+      "sectionSpacing": {
+        "type": "relative",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "default": 0,
+        "unit": "px"
+      },
+      "itemSpacing": {
+        "type": "relative",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "default": 0,
+        "unit": "px"
+      },
+      "lineSpacing": {
+        "type": "relative",
+        "min": 1,
+        "max": 2.5,
+        "step": 0.1,
+        "default": 1.5,
+        "unit": "multiplier"
+      },
+      "accentColors": {
+        "availableElements": [
+          "Name",
+          "Headings",
+          "Header icons",
+          "Dots/Bars/Bubbles",
+          "Dates",
+          "Link icons"
+        ],
+        "defaultSelectedElements": [],
+        "defaultAppliedColors": {},
+        "elementColors": {},
+        "fontSize": "1px",
+        "fontWeight": 400,
+        "sectionSpacing": 0,
+        "itemSpacing": 0,
+        "lineSpacing": 1.5
+      }
+    },
+    "lineHeights": {
+      "base": 1.6,
+      "heading": 1.3
+    },
+    "letterSpacing": {
+      "base": "0px",
+      "heading": "0.5px"
+    },
+    "margin": {
+      "section": "24px",
+      "item": "10px",
+      "container": "0"
+    },
+    "gap": {
+      "row": "8px",
+      "column": "16px"
+    },
+    "grid": {
+      "columns": "1fr",
+      "gap": "20px"
+    },
+    "borderRadius": {
+      "small": "4px",
+      "medium": "6px",
+      "large": "8px"
+    },
+    "boxShadow": {
+      "default": "none",
+      "accent": "0 1px 2px rgba(0,0,0,0.05)"
+    },
+    "border": {
+      "default": "1px solid #e2e8f0",
+      "accent": "2px solid #0f766e"
+    },
+    "elementColors": {},
+    "defaultSelectedElements": [],
+    "defaultAppliedColors": {}
+  },
+  "dateFormat": {
+    "availableFormats": [
+      "mm/dd/yyyy",
+      "mm/yyyy",
+      "yyyy"
+    ],
+    "defaultFormat": "mm/dd/yyyy",
+    "description": "Date format options for CV display"
+  },
+  "dateFormatConfig": {
+    "education": {
+      "availableFormats": [
+        "mm/dd/yyyy",
+        "mm/yyyy",
+        "yyyy"
+      ],
+      "defaultFormat": "mm/dd/yyyy"
+    },
+    "experience": {
+      "availableFormats": [
+        "mm/dd/yyyy",
+        "mm/yyyy",
+        "yyyy"
+      ],
+      "defaultFormat": "mm/dd/yyyy"
+    },
+    "projects": {
+      "availableFormats": [
+        "mm/dd/yyyy",
+        "mm/yyyy",
+        "yyyy"
+      ],
+      "defaultFormat": "mm/dd/yyyy"
+    },
+    "awards": {
+      "availableFormats": [
+        "mm/dd/yyyy",
+        "mm/yyyy",
+        "yyyy"
+      ],
+      "defaultFormat": "mm/dd/yyyy"
+    },
+    "organizations": {
+      "availableFormats": [
+        "mm/dd/yyyy",
+        "mm/yyyy",
+        "yyyy"
+      ],
+      "defaultFormat": "mm/dd/yyyy"
+    },
+    "publications": {
+      "availableFormats": [
+        "mm/dd/yyyy",
+        "mm/yyyy",
+        "yyyy"
+      ],
+      "defaultFormat": "mm/dd/yyyy"
+    },
+    "courses": {
+      "availableFormats": [
+        "mm/dd/yyyy",
+        "mm/yyyy",
+        "yyyy"
+      ],
+      "defaultFormat": "mm/dd/yyyy"
+    }
+  }
+}

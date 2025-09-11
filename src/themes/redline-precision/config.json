@@ -1,0 +1,237 @@
+{
+  "name": "redline-precision",
+  "displayName": "Readline Precision",
+  "description": "A modern minimalist resume theme with bold crimson highlights and clear two-column layout, perfect for digital professionals.",
+  "author": "FormCV",
+  "version": "1.0.0",
+  "preview": "preview.png",
+  "category": "modern",
+  "sectionOrder": [
+    "personal",
+    "summary",
+    "experience",
+    "education",
+    "skills",
+    "projects",
+    "languages",
+    "awards",
+    "courses",
+    "organizations",
+    "publications",
+    "interests",
+    "references",
+    "customSections",
+    "declaration"
+  ],
+  "css": {
+    "fonts": {
+      "primary": "Roboto Slab, sans-serif",
+      "heading": "Roboto Slab, sans-serif",
+      "monospace": "Courier New, monospace"
+    },
+    "fontSizes": {
+      "base": "14px",
+      "small": "13px",
+      "large": "17px",
+      "heading": "26px",
+      "sectionTitle": "19px",
+      "itemTitle": "16px",
+      "body": "14px",
+      "h1": "28px",
+      "h2": "20px"
+    },
+    "fontWeights": {
+      "normal": 400,
+      "bold": 700,
+      "medium": 500
+    },
+    "colors": {
+      "primary": "#cc3333",
+      "secondary": "#999999",
+      "background": "#ffffff",
+      "surface": "#ffffff",
+      "accent": "#cc3333",
+      "text": "#000000",
+      "muted": "#999999"
+    },
+    "spacing": {
+      "lineHeight": "1.5",
+      "section": "20px",
+      "item": "12px",
+      "container": "20mm",
+      "line": "1.5"
+    },
+    "padding": {
+      "container": "40px 20px",
+      "section": "20px",
+      "item": "10px"
+    },
+    "customization": {
+      "fontSize": {
+        "type": "relative",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "default": 0,
+        "unit": "px",
+        "scaling": {
+          "enabled": true,
+          "description": "When font size is changed, all font sizes will be adjusted proportionally"
+        }
+      },
+      "fontWeight": {
+        "type": "absolute",
+        "min": 400,
+        "max": 800,
+        "step": 100,
+        "default": 400
+      },
+      "sectionSpacing": {
+        "type": "relative",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "default": 0,
+        "unit": "px"
+      },
+      "itemSpacing": {
+        "type": "relative",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "default": 0,
+        "unit": "px"
+      },
+      "lineSpacing": {
+        "type": "relative",
+        "min": 1,
+        "max": 2.5,
+        "step": 0.1,
+        "default": 1.5,
+        "unit": "multiplier"
+      },
+      "accentColors": {
+        "availableElements": [
+          "Name",
+          "Headings",
+          "Header icons",
+          "Dots/Bars/Bubbles",
+          "Dates",
+          "Link icons"
+        ],
+        "defaultSelectedElements": [],
+        "defaultAppliedColors": {},
+        "elementColors": {},
+        "fontSize": "1px",
+        "fontWeight": 400,
+        "sectionSpacing": 0,
+        "itemSpacing": 0,
+        "lineSpacing": 1.5
+      }
+    },
+    "lineHeights": {
+      "base": 1.6,
+      "heading": 1.3
+    },
+    "letterSpacing": {
+      "base": "0.2px",
+      "heading": "0.5px"
+    },
+    "margin": {
+      "section": "20px",
+      "item": "10px",
+      "container": "0"
+    },
+    "gap": {
+      "row": "10px",
+      "column": "20px"
+    },
+    "grid": {
+      "columns": "240px 1fr",
+      "gap": "25px"
+    },
+    "borderRadius": {
+      "small": "3px",
+      "medium": "6px",
+      "large": "10px"
+    },
+    "boxShadow": {
+      "default": "none",
+      "accent": "none"
+    },
+    "border": {
+      "default": "1px solid #eeeeee",
+      "accent": "2px solid #C1272D"
+    },
+    "elementColors": {},
+    "defaultSelectedElements": [],
+    "defaultAppliedColors": {}
+  },
+  "dateFormat": {
+    "availableFormats": [
+      "mm/dd/yyyy",
+      "mm/yyyy",
+      "yyyy"
+    ],
+    "defaultFormat": "mm/dd/yyyy",
+    "description": "Date format options for CV display"
+  },
+  "dateFormatConfig": {
+    "education": {
+      "availableFormats": [
+        "mm/dd/yyyy",
+        "mm/yyyy",
+        "yyyy"
+      ],
+      "defaultFormat": "mm/dd/yyyy"
+    },
+    "experience": {
+      "availableFormats": [
+        "mm/dd/yyyy",
+        "mm/yyyy",
+        "yyyy"
+      ],
+      "defaultFormat": "mm/dd/yyyy"
+    },
+    "projects": {
+      "availableFormats": [
+        "mm/dd/yyyy",
+        "mm/yyyy",
+        "yyyy"
+      ],
+      "defaultFormat": "mm/dd/yyyy"
+    },
+    "awards": {
+      "availableFormats": [
+        "mm/dd/yyyy",
+        "mm/yyyy",
+        "yyyy"
+      ],
+      "defaultFormat": "mm/dd/yyyy"
+    },
+    "organizations": {
+      "availableFormats": [
+        "mm/dd/yyyy",
+        "mm/yyyy",
+        "yyyy"
+      ],
+      "defaultFormat": "mm/dd/yyyy"
+    },
+    "publications": {
+      "availableFormats": [
+        "mm/dd/yyyy",
+        "mm/yyyy",
+        "yyyy"
+      ],
+      "defaultFormat": "mm/dd/yyyy"
+    },
+    "courses": {
+      "availableFormats": [
+        "mm/dd/yyyy",
+        "mm/yyyy",
+        "yyyy"
+      ],
+      "defaultFormat": "mm/dd/yyyy"
+    }
+  }
+}

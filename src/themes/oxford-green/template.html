@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{personalInfo.name}} - CV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+{{generateCustomCSS theme cvId}}
+        
+        /* Custom CSS from frontend */
+        {{#if customCSS}}
+        {{customCSS}}
+        {{/if}}
+</style>
+
+  <style>
+    :root {
+      /* Fonts */
+      --theme-font-primary: {{theme.css.fonts.primary}};
+      --theme-font-heading: {{theme.css.fonts.heading}};
+      --theme-font-monospace: {{theme.css.fonts.monospace}};
+      
+      /* Font Sizes */
+      --theme-font-size-base: {{theme.css.fontSizes.body}};
+      --theme-font-size-small: {{theme.css.fontSizes.small}};
+      --theme-font-size-large: {{theme.css.fontSizes.large}};
+      --theme-font-size-heading: {{theme.css.fontSizes.heading}};
+      --theme-font-size-sectionTitle: {{theme.css.fontSizes.sectionTitle}};
+      --theme-font-size-itemTitle: {{theme.css.fontSizes.itemTitle}};
+            --theme-font-size-h1: {{theme.css.fontSizes.h1}};
+            --theme-font-size-h2: {{theme.css.fontSizes.h2}};
+            --theme-font-size-body: {{theme.css.fontSizes.body}};
+      
+      /* Font Weights */
+      --theme-font-weight-normal: {{theme.css.fontWeights.normal}};
+      --theme-font-weight-bold: {{theme.css.fontWeights.bold}};
+      --theme-font-weight-medium: {{theme.css.fontWeights.medium}};
+      --theme-font-weight-normal: {{theme.css.fontWeights.normal}};
+      
+      /* Colors */
+      --theme-color-primary: {{theme.css.colors.primary}};
+      --theme-color-secondary: {{theme.css.colors.secondary}};
+      --theme-color-background: {{theme.css.colors.background}};
+      --theme-color-surface: {{theme.css.colors.surface}};
+      --theme-color-accent: {{theme.css.colors.accent}};
+      --theme-color-text: {{theme.css.colors.text}};
+      --theme-color-muted: {{theme.css.colors.muted}};
+      
+      /* Spacing */
+      --theme-spacing-section: {{theme.css.spacing.section}};
+      --theme-spacing-item: {{theme.css.spacing.item}};
+      --theme-spacing-line: {{theme.css.spacing.lineHeight}};
+            --theme-spacing-lineHeight: {{theme.css.spacing.lineHeight}};
+      --theme-spacing-container: {{theme.css.spacing.container}};
+      --theme-spacing-container: {{theme.css.padding.container}};
+    }
+
+    body {
+      font-family: var(--theme-font-primary);
+      background: var(--theme-color-background);
+      color: var(--theme-color-text);
+      margin: 0;
+      padding: 0;
+      font-size: var(--theme-font-size-base);
+    }
+    .header-bg {
+      background: var(--theme-color-primary);
+      color: #fff;
+      padding: 32px 0 24px 0;
+      text-align: left;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--theme-color-surface);
+      border-radius: 0 0 8px 8px;
+      box-shadow: 0 2px 16px 0 rgba(0,0,0,0.06);
+      padding: 0 32px 32px 32px;
+    }
+    .cv-section-row {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      align-items: flex-start;
+      gap: 24px;
+      margin-bottom: var(--theme-spacing-section);
+    }
+    .cv-section-row.summary-row {
+      margin-top: 0;
+    }
+    .cv-section-label {
+      font-size: var(--theme-font-size-section-title);
+      font-weight: var(--theme-font-weight-bold);
+      color: var(--theme-color-primary);
+      letter-spacing: 0.2px;
+      margin-top: 6px;
+      margin-bottom: 0;
+      opacity: 0.95;
+      text-align: left;
+      white-space: nowrap;
+    }
+    .cv-section-content {
+      min-width: 0;
+    }
+    .container a {
+      color: #004d1a;
+      text-decoration: underline;
+      transition: color 0.2s;
+    }
+    .container a:hover {
+      color: #004d1a;
+    }
+    .cv-title {
+      font-size: 1.1em;
+      font-weight: 400;
+      margin-bottom: 10px;
+      color: #d1e7dd;
+    }
+    .cv-name {
+      font-size: 2.3em;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+    .cv-contact {
+      font-size: 0.98em;
+      color: #e0f2e9;
+      margin-bottom: 0;
+      margin-top: 10px;
+    }
+    .cv-contact a {
+      color: #e0f2e9;
+      text-decoration: underline;
+    }
+    .cv-contact a:hover {
+      color: #b7e4c7;
+    }
+    .section {
+      margin: 0;
+    }
+    .section-title {
+      font-size: 1.18em;
+      font-weight: 700;
+      color: #295c3c;
+      margin-bottom: 8px;
+      letter-spacing: 0.3px;
+      border-bottom: 1px solid #b7e4c7;
+      padding-bottom: 4px;
+      display: none;
+    }
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .skills-list li {
+      background: #e0f2e9;
+      color: #295c3c;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 1em;
+      font-weight: 500;
+    }
+    /* Bố cục mới cho Skills với description */
+    .skills-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .skill-category {
+      border: 1px solid #b7e4c7;
+      border-radius: 8px;
+      padding: 16px;
+      background: #f8fdf9;
+    }
+    .skill-category-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #e0f2e9;
+    }
+    .skill-category-title {
+      font-weight: 700;
+      font-size: 1.1em;
+      color: #295c3c;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .skill-level-badge {
+      background: #295c3c;
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 0.85em;
+      font-weight: 600;
+    }
+    .skill-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 12px;
+      margin-bottom: 12px;
+    }
+    .skill-item {
+      background: #e0f2e9;
+      color: #295c3c;
+      padding: 6px 12px;
+      border-radius: 16px;
+      font-size: 0.95em;
+      font-weight: 500;
+      border: 1px solid #b7e4c7;
+    }
+    .skill-description {
+      color: #4a5d4a;
+      font-size: 0.9em;
+      line-height: 1.5;
+      font-style: italic;
+      padding: 8px 12px;
+      background: #f0f8f0;
+      border-radius: 6px;
+      border-left: 3px solid #295c3c;
+    }
+    .experience-list, .education-list, .languages-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .experience-item, .education-item, .language-item {
+      margin-bottom: 18px;
+    }
+    .exp-header, .edu-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 2px;
+    }
+    .exp-company, .edu-school {
+      font-weight: 700;
+      font-size: 1em;
+      color: #295c3c;
+      text-transform: uppercase;
+    }
+    .exp-date, .edu-date {
+      color: #295c3c;
+      font-size: 0.98em;
+      font-weight: 500;
+      text-align: right;
+    }
+    .exp-role, .edu-degree {
+      font-style: italic;
+      color: #295c3c;
+      font-size: 0.98em;
+      margin-bottom: 4px;
+    }
+    .description {
+      color: #374151;
+      font-size: 0.98em;
+      margin-top: 4px;
+      margin-bottom: 0;
+    }
+    .languages-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px 48px;
+    }
+    .language-item {
+      min-width: 120px;
+    }
+    .language-name {
+      font-weight: 700;
+      color: #295c3c;
+      font-size: 1em;
+    }
+    .language-level {
+      color: #374151;
+      font-size: 0.98em;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #b7e4c7;
+      margin: 24px 0;
+    }
+    .cv-section-content hr {
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+      border: none;
+      border-top: 1px solid #b7e4c7;
+    }
+    .cv-section-hr {
+      width: 100%;
+      margin: 0 0 24px 0;
+      border: none;
+      border-top: 1px solid #b7e4c7;
+      grid-column: 1 / -1;
+    }
+  </style>
+</head>
+<body>
+  <div class="header-bg">
+    <div class="container" style="background: none; box-shadow: none; padding-bottom: 0;">
+      <div class="cv-title">{{personalInfo.title}}</div>
+      <div class="cv-name">{{personalInfo.name}}</div>
+      <div class="cv-contact">
+        {{#if personalInfo.location}}{{personalInfo.location}} | {{/if}}
+        {{#if personalInfo.phone}}{{personalInfo.phone}} | {{/if}}
+        {{#if personalInfo.email}}{{personalInfo.email}} | {{/if}}
+        {{#if personalInfo.website}}<a href="{{personalInfo.website}}" target="_blank">{{personalInfo.website}}</a> | {{/if}}
+        {{#if personalInfo.linkedin}}<a href="{{personalInfo.linkedin}}" target="_blank">{{personalInfo.linkedin}}</a> | {{/if}}
+        {{#if personalInfo.github}}<a href="{{personalInfo.github}}">{{personalInfo.github}}</a>{{/if}}
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    {{#if summary}}
+    <div class="cv-section-row">
+      <div class="cv-section-label" style="padding-top: 30px;">Summary</div>
+      <div class="cv-section-content section">
+        <div class="section-title">Summary</div>
+        <div class="description" style="padding-top: 30px;">{{{richText summary}}}</div>
+      </div>
+    </div>
+    <hr class="cv-section-hr">
+    {{/if}}
+    {{#if skills}}
+    <div class="cv-section-row">
+      <div class="cv-section-label">Skills</div>
+      <div class="cv-section-content section">
+        <div class="section-title">Skills</div>
+        <div class="skills-container">
+          {{#each skills}}
+          <div class="skill-category">
+            <div class="skill-category-header">
+              <div class="skill-category-title">{{category}}</div>
+              {{#if level}}<div class="skill-level-badge">{{level}}</div>{{/if}}
+            </div>
+            <div class="skill-items">
+              {{#each items}}
+              <div class="skill-item">{{this}}</div>
+              {{/each}}
+            </div>
+            {{#if description}}
+            <div class="skill-description">{{{richText description}}}</div>
+            {{/if}}
+          </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+    <hr class="cv-section-hr">
+    {{/if}}
+    {{#if experience}}
+    <div class="cv-section-row">
+      <div class="cv-section-label">Work experience</div>
+      <div class="cv-section-content section">
+        <div class="section-title">Work experience</div>
+        <ul class="experience-list">
+          {{#each experience}}
+          <li class="experience-item">
+            <div class="exp-header">
+              <span class="exp-company">{{company}}</span>
+              <span class="exp-date">{{#if location}}{{location}} | {{/if}}{{startDate}}{{#if endDate}} - {{endDate}}{{/if}}</span>
+            </div>
+            <div class="exp-role">{{position}}</div>
+            {{#if description}}<div class="description">{{{richText description}}}</div>{{/if}}
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+    <hr class="cv-section-hr">
+    {{/if}}
+    {{#if education}}
+    <div class="cv-section-row">
+      <div class="cv-section-label">Education</div>
+      <div class="cv-section-content section">
+        <div class="section-title">Education</div>
+        <ul class="education-list">
+          {{#each education}}
+          <li class="education-item">
+            <div class="edu-header">
+              <span class="edu-school">{{institution}}</span>
+              <span class="edu-date">{{#if location}}{{location}} | {{/if}}{{startDate}}{{#if endDate}} - {{endDate}}{{/if}}</span>
+            </div>
+            <div class="edu-degree">{{degree}}</div>
+            {{#if description}}<div class="description">{{{richText description}}}</div>{{/if}}
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+    <hr class="cv-section-hr">
+    {{/if}}
+    {{#if languages}}
+    <div class="cv-section-row">
+      <div class="cv-section-label">Languages</div>
+      <div class="cv-section-content section">
+        <div class="section-title">Languages</div>
+        <div class="languages-list">
+          {{#each languages}}
+          <div class="language-item">
+            <div class="language-name">{{language}}</div>
+            <div class="language-level">{{level}}</div>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+    <hr class="cv-section-hr">
+    {{/if}}
+    {{#if projects}}
+    <div class="cv-section-row">
+      <div class="cv-section-label">Projects</div>
+      <div class="cv-section-content section">
+        <div class="section-title">Projects</div>
+        <ul class="experience-list">
+          {{#each projects}}
+          <li class="experience-item">
+            <div class="exp-header">
+              <span class="exp-company">{{title}}</span>
+              <span class="exp-date">{{startDate}}{{#if endDate}} - {{endDate}}{{/if}}</span>
+            </div>
+            {{#if technologies}}
+            <div class="description">{{#each technologies}}<span style="background:#e0f2e9;color:#295c3c;padding:2px 8px;border-radius:8px;margin-right:6px;">{{this}}</span>{{/each}}</div>
+            {{/if}}
+            {{#if description}}<div class="description">{{{richText description}}}</div>{{/if}}
+            {{#if url}}<div class="cv-contact"><a href="{{url}}" style="color: darkgreen;">{{url}}</a></div>{{/if}}
+            {{#if github}}<div class="cv-contact"><a href="{{github}}" style="color: darkgreen;">GitHub</a></div>{{/if}}
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+    <hr class="cv-section-hr">
+    {{/if}}
+    {{#if awards}}
+    <div class="cv-section-row">
+      <div class="cv-section-label">Awards</div>
+      <div class="cv-section-content section">
+        <div class="section-title">Awards</div>
+        <ul class="experience-list">
+          {{#each awards}}
+          <li class="experience-item">
+            <div class="exp-header">
+              <span class="exp-company">{{title}}</span>
+              <span class="exp-date">{{dateReceived}}{{#if expiryDate}} - {{expiryDate}}{{/if}}</span>
+            </div>
+            <div class="exp-role">{{issuer}}</div>
+            {{#if description}}<div class="description">{{{richText description}}}</div>{{/if}}
+            {{#if verificationUrl}}<div class="cv-contact"><a href="{{verificationUrl}}" style="color: darkgreen;">Verify</a></div>{{/if}}
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+    <hr class="cv-section-hr">
+    {{/if}}
+    {{#if courses}}
+    <div class="cv-section-row">
+      <div class="cv-section-label">Courses & Training</div>
+      <div class="cv-section-content section">
+        <div class="section-title">Courses & Training</div>
+        <ul class="experience-list">
+          {{#each courses}}
+          <li class="experience-item">
+            <div class="exp-header">
+              <span class="exp-company">{{title}}</span>
+              <span class="exp-date">{{completionDate}}{{#if duration}} ({{duration}}){{/if}}</span>
+            </div>
+            <div class="exp-role">{{provider}}</div>
+            {{#if description}}<div class="description">{{{richText description}}}</div>{{/if}}
+            {{#if certificateUrl}}<div class="cv-contact"><a href="{{certificateUrl}}" style="color: darkgreen;">Certificate</a></div>{{/if}}
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+    <hr class="cv-section-hr">
+    {{/if}}
+    {{#if organizations}}
+    <div class="cv-section-row">
+      <div class="cv-section-label">Organizations</div>
+      <div class="cv-section-content section">
+        <div class="section-title">Organizations</div>
+        <ul class="experience-list">
+          {{#each organizations}}
+          <li class="experience-item">
+            <div class="exp-header">
+              <span class="exp-company">{{name}}</span>
+              <span class="exp-date">{{startDate}}{{#if endDate}} - {{endDate}}{{else}}{{#if current}} - Current{{/if}}{{/if}}</span>
+            </div>
+            <div class="exp-role">{{role}}</div>
+            {{#if description}}<div class="description">{{{richText description}}}</div>{{/if}}
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+    <hr class="cv-section-hr">
+    {{/if}}
+    {{#if interests}}
+    <div class="cv-section-row">
+      <div class="cv-section-label">Interests</div>
+      <div class="cv-section-content section">
+        <div class="section-title">Interests</div>
+        <ul class="experience-list">
+          {{#each interests}}
+          <li class="experience-item">
+            <div class="exp-header">
+              <span class="exp-company">{{category}}</span>
+            </div>
+            <div class="description">{{#each items}}<span style="background:#e0f2e9;color:#295c3c;padding:2px 8px;border-radius:8px;margin-right:6px;">{{this}}</span>{{/each}}</div>
+            {{#if description}}<div class="description">{{{richText description}}}</div>{{/if}}
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+    <hr class="cv-section-hr">
+    {{/if}}
+    {{#if publications}}
+    <div class="cv-section-row">
+      <div class="cv-section-label">Publications</div>
+      <div class="cv-section-content section">
+        <div class="section-title">Publications</div>
+        <ul class="experience-list">
+          {{#each publications}}
+          <li class="experience-item">
+            <div class="exp-header">
+              <span class="exp-company">{{title}}</span>
+              <span class="exp-date">{{date}}</span>
+            </div>
+            <div class="exp-role">{{venue}}</div>
+            {{#if description}}<div class="description">{{{richText description}}}</div>{{/if}}
+            {{#if url}}<div class="cv-contact"><a href="{{url}}" style="color: darkgreen;">View Publication</a></div>{{/if}}
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+    <hr class="cv-section-hr">
+    {{/if}}
+    {{#if references}}
+    <div class="cv-section-row">
+      <div class="cv-section-label">References</div>
+      <div class="cv-section-content section">
+        <div class="section-title">References</div>
+        <ul class="experience-list">
+          {{#each references}}
+          <li class="experience-item">
+            <div class="exp-header">
+              <span class="exp-company">{{name}}</span>
+              <span class="exp-date">{{company}}</span>
+            </div>
+            <div class="exp-role">{{title}}</div>
+            <div class="description">{{email}}{{#if phone}} | {{phone}}{{/if}}</div>
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+    <hr class="cv-section-hr">
+    {{/if}}
+    {{#if customSections}}
+      {{#each customSections}}
+        <div class="cv-section-row">
+          <div class="cv-section-label">{{title}}</div>
+          <div class="cv-section-content section">
+            <div class="section-title">{{title}}</div>
+            {{#if subtitle}}<div class="exp-role">{{subtitle}}</div>{{/if}}
+            {{#if content}}<div class="description">{{{richText content}}}</div>{{/if}}
+            {{#if url}}<div class="cv-contact"><a href="{{url}}" style="color: darkgreen;">Learn More</a></div>{{/if}}
+          </div>
+        </div>
+        <hr class="cv-section-hr">
+      {{/each}}
+    {{/if}}
+    {{#if declaration}}
+    <div class="cv-section-row">
+      <div class="cv-section-label">Declaration</div>
+      <div class="cv-section-content section">
+        <div class="section-title">Declaration</div>
+        {{#if declaration.statement}}<div class="description">{{{richText declaration.statement}}}</div>{{/if}}
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-top: 8px;">
+          <div class="exp-role">{{#if declaration.place}}{{declaration.place}}, {{/if}}{{declaration.date}}</div>
+          <div class="exp-role" style="text-align: right;">{{declaration.signature}}</div>
+        </div>
+      </div>
+    </div>
+    <hr class="cv-section-hr">
+    {{/if}}
+  </div>
+</body>
+</html>

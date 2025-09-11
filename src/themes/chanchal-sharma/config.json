@@ -1,0 +1,237 @@
+{
+  "name": "chanchal-sharma",
+  "displayName": "Chanchal Shama",
+  "description": "Professional office manager resume with a clean and minimal black and white theme, highlighting experience, education, and skills",
+  "author": "FormCV",
+  "version": "1.1.0",
+  "preview": "preview.png",
+  "category": "minimal",
+  "sectionOrder": [
+    "personal",
+    "summary",
+    "experience",
+    "education",
+    "skills",
+    "projects",
+    "languages",
+    "awards",
+    "courses",
+    "organizations",
+    "publications",
+    "interests",
+    "references",
+    "customSections",
+    "declaration"
+  ],
+  "css": {
+    "fonts": {
+      "primary": "Inter, sans-serif",
+      "heading": "Inter, sans-serif",
+      "monospace": "Courier New, monospace"
+    },
+    "fontSizes": {
+      "base": "14px",
+      "small": "12px",
+      "large": "16px",
+      "heading": "26px",
+      "sectionTitle": "19px",
+      "itemTitle": "16px",
+      "body": "14px",
+      "h1": "26px",
+      "h2": "19px"
+    },
+    "fontWeights": {
+      "normal": 400,
+      "bold": 700,
+      "medium": 500
+    },
+    "colors": {
+      "primary": "#1f2937",
+      "secondary": "#6b7280",
+      "background": "#ffffff",
+      "surface": "#ffffff",
+      "accent": "#3b82f6",
+      "text": "#111827",
+      "muted": "#6b7280"
+    },
+    "defaultSelectedElements": [],
+    "defaultAppliedColors": {},
+    "elementColors": {},
+    "spacing": {
+      "lineHeight": "1.2",
+      "section": "20px",
+      "item": "12px",
+      "container": "20mm",
+      "line": "1.2"
+    },
+    "padding": {
+      "container": "20mm",
+      "section": "20px",
+      "item": "15px"
+    },
+    "customization": {
+      "fontSize": {
+        "type": "relative",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "default": 0,
+        "unit": "px",
+        "scaling": {
+          "enabled": true,
+          "description": "When font size is changed, all font sizes will be adjusted proportionally"
+        }
+      },
+      "fontWeight": {
+        "type": "absolute",
+        "min": 400,
+        "max": 800,
+        "step": 100,
+        "default": 400
+      },
+      "sectionSpacing": {
+        "type": "relative",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "default": 0,
+        "unit": "px"
+      },
+      "itemSpacing": {
+        "type": "relative",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "default": 0,
+        "unit": "px"
+      },
+      "lineSpacing": {
+        "type": "relative",
+        "min": 1,
+        "max": 2.5,
+        "step": 0.1,
+        "default": 1.5,
+        "unit": "multiplier"
+      },
+      "accentColors": {
+        "availableElements": [
+          "Name",
+          "Headings",
+          "Header icons",
+          "Dots/Bars/Bubbles",
+          "Dates",
+          "Link icons"
+        ],
+        "defaultSelectedElements": [],
+        "defaultAppliedColors": {},
+        "elementColors": {},
+        "fontSize": "1px",
+        "fontWeight": 400,
+        "sectionSpacing": 0,
+        "itemSpacing": 0,
+        "lineSpacing": 1.5
+      }
+    },
+    "lineHeights": {
+      "base": 1.5,
+      "heading": 1.2
+    },
+    "letterSpacing": {
+      "base": "0px",
+      "heading": "1px"
+    },
+    "margin": {
+      "section": "20px",
+      "item": "12px",
+      "container": "0"
+    },
+    "gap": {
+      "row": "5px",
+      "column": "15px"
+    },
+    "grid": {
+      "columns": "repeat(2, 1fr)",
+      "gap": "15px"
+    },
+    "borderRadius": {
+      "small": "5px",
+      "medium": "8px",
+      "large": "10px"
+    },
+    "boxShadow": {
+      "default": "none",
+      "accent": "none"
+    },
+    "border": {
+      "default": "1px solid #cccccc",
+      "accent": "3px solid #000000"
+    }
+  },
+  "dateFormat": {
+    "availableFormats": [
+      "mm/dd/yyyy",
+      "mm/yyyy",
+      "yyyy"
+    ],
+    "defaultFormat": "mm/dd/yyyy",
+    "description": "Date format options for CV display"
+  },
+  "dateFormatConfig": {
+    "education": {
+      "availableFormats": [
+        "mm/dd/yyyy",
+        "mm/yyyy",
+        "yyyy"
+      ],
+      "defaultFormat": "mm/dd/yyyy"
+    },
+    "experience": {
+      "availableFormats": [
+        "mm/dd/yyyy",
+        "mm/yyyy",
+        "yyyy"
+      ],
+      "defaultFormat": "mm/dd/yyyy"
+    },
+    "projects": {
+      "availableFormats": [
+        "mm/dd/yyyy",
+        "mm/yyyy",
+        "yyyy"
+      ],
+      "defaultFormat": "mm/dd/yyyy"
+    },
+    "awards": {
+      "availableFormats": [
+        "mm/dd/yyyy",
+        "mm/yyyy",
+        "yyyy"
+      ],
+      "defaultFormat": "mm/dd/yyyy"
+    },
+    "organizations": {
+      "availableFormats": [
+        "mm/dd/yyyy",
+        "mm/yyyy",
+        "yyyy"
+      ],
+      "defaultFormat": "mm/dd/yyyy"
+    },
+    "publications": {
+      "availableFormats": [
+        "mm/dd/yyyy",
+        "mm/yyyy",
+        "yyyy"
+      ],
+      "defaultFormat": "mm/dd/yyyy"
+    },
+    "courses": {
+      "availableFormats": [
+        "mm/dd/yyyy",
+        "mm/yyyy",
+        "yyyy"
+      ],
+      "defaultFormat": "mm/dd/yyyy"
+    }
+  }
+}

@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{{personalInfo.name}} - Resume</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&display=swap" rel="stylesheet">
+    <style>
+{{generateCustomCSS theme}}
+        
+        /* Custom CSS from frontend */
+        {{#if customCSS}}
+        {{customCSS}}
+        {{/if}}
+</style>
+
+  <style>
+    :root {
+      /* Font Families */
+      --theme-font-primary: {{theme.css.fonts.primary}};
+      --theme-font-heading: {{theme.css.fonts.heading}};
+      --theme-font-monospace: {{theme.css.fonts.monospace}};
+      
+      /* Font Sizes */
+      --theme-font-size-base: {{theme.css.fontSizes.base}};
+      --theme-font-size-small: {{theme.css.fontSizes.small}};
+      --theme-font-size-large: {{theme.css.fontSizes.large}};
+      --theme-font-size-heading: {{theme.css.fontSizes.heading}};
+      --theme-font-size-sectionTitle: {{theme.css.fontSizes.sectionTitle}};
+      --theme-font-size-itemTitle: {{theme.css.fontSizes.itemTitle}};
+      --theme-font-size-body: {{theme.css.fontSizes.body}};
+      --theme-font-size-h1: {{theme.css.fontSizes.h1}};
+      --theme-font-size-h2: {{theme.css.fontSizes.h2}};
+      
+      /* Font Weights */
+      --theme-font-weight-normal: {{theme.css.fontWeights.normal}};
+      --theme-font-weight-bold: {{theme.css.fontWeights.bold}};
+      --theme-font-weight-medium: {{theme.css.fontWeights.medium}};
+      
+      /* Colors */
+      --theme-color-primary: {{theme.css.colors.primary}};
+      --theme-color-secondary: {{theme.css.colors.secondary}};
+      --theme-color-background: {{theme.css.colors.background}};
+      --theme-color-surface: {{theme.css.colors.surface}};
+      --theme-color-accent: {{theme.css.colors.accent}};
+      --theme-color-text: {{theme.css.colors.text}};
+      --theme-color-muted: {{theme.css.colors.muted}};
+      
+      /* Spacing */
+      --theme-spacing-lineHeight: {{theme.css.spacing.lineHeight}};
+      --theme-spacing-section: {{theme.css.spacing.section}};
+      --theme-spacing-item: {{theme.css.spacing.item}};
+      --theme-spacing-container: {{theme.css.spacing.container}};
+      --theme-spacing-line: {{theme.css.spacing.line}};
+      
+      /* Legacy variables for compatibility */
+      --main-color: var(--theme-color-primary);
+      --muted-color: var(--theme-color-muted);
+      --bg-color: var(--theme-color-background);
+      --font-main: var(--theme-font-primary);
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-main);
+      background: white;
+      color: #000;
+      font-size: 14px;
+    }
+
+    .container {
+      display: flex;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .sidebar {
+      width: 30%;
+      background: white;
+      padding: 30px 20px;
+      position: relative;
+    }
+
+    .sidebar::before {
+      content: "{{personalInfo.name.[0]}}";
+      position: absolute;
+      font-size: 120px;
+      color: rgba(0, 0, 0, 0.05);
+      top: 10px;
+      left: 10px;
+      font-weight: bold;
+      z-index: 0;
+    }
+
+    .sidebar * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .name {
+      color: var(--main-color);
+      font-size: 26px;
+      font-weight: bold;
+    }
+
+    .title {
+      color: var(--main-color);
+      font-size: 14px;
+      margin-top: 4px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--main-color);
+      font-weight: bold;
+      font-size: 14px;
+      text-transform: uppercase;
+      margin-top: 40px;
+      margin-bottom: 10px;
+    }
+
+    .section-title::before {
+      content: "";
+      display: inline-block;
+      width: 40px;
+      height: 2px;
+      background-color: var(--main-color);
+      flex-shrink: 0;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding-left: 0;
+      font-size: 13px;
+    }
+
+    .sidebar ul li {
+      margin-bottom: 6px;
+    }
+
+    .main {
+      width: 70%;
+      padding-left: 40px;
+    }
+
+    .summary {
+      color: var(--main-color);
+      font-size: 13px;
+      margin-bottom: 30px;
+      max-width: 90%;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      white-space: pre-wrap;
+    }
+
+    .work-item {
+      margin-bottom: 30px;
+    }
+
+    .company {
+      color: var(--main-color);
+      font-weight: bold;
+      font-size: 20px;
+      margin-bottom: 2px;
+    }
+
+    .position {
+      font-style: italic;
+      margin-bottom: 2px;
+      font-size: 14px;
+    }
+
+    .date {
+      font-size: 12px;
+      color: var(--muted-color);
+      margin-bottom: 8px;
+    }
+
+    .main ul {
+      margin-left: 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .main ul li {
+      margin-bottom: 5px;
+    }
+
+    .edu-title {
+      color: var(--main-color);
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .edu-sub {
+      font-style: italic;
+      font-size: 13px;
+    }
+
+    a {
+      color: var(--main-color);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    code {
+      background: #f0f0f0;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+    }
+
+    blockquote {
+      border-left: 4px solid var(--main-color);
+      padding-left: 10px;
+      margin: 0 0 10px 0;
+      font-style: italic;
+      color: #333;
+    }
+
+    .skills-group {
+      background: #faf6f6;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      margin-bottom: 18px;
+      padding: 12px 20px 8px 20px;
+    }
+
+    .skills-category-row {
+      display: flex;
+      align-items: baseline;
+      gap: 7px;
+      margin-bottom: 2px;
+      margin-left: 0;
+      padding-left: 0;
+    }
+
+    .skills-category {
+      font-weight: bold;
+      color: var(--main-color);
+      font-size: 15px;
+      line-height: 1.2;
+      margin-left: 0;
+      padding-left: 0;
+    }
+
+    .skills-level {
+      background: #ffeaea;
+      color: var(--main-color);
+      font-size: 11px;
+      border-radius: 6px;
+      padding: 2px 8px;
+      font-style: italic;
+      font-weight: 500;
+      white-space: nowrap;
+      line-height: 1.2;
+    }
+
+    .skills-desc {
+      color: #666;
+      font-size: 12px;
+      margin-bottom: 6px;
+      margin-top: 4px;
+      margin-left: 0;
+      padding-left: 0;
+      line-height: 1.5;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      white-space: pre-wrap;
+    }
+
+    .skills-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .skills-item-tag {
+      background: #fff0f0;
+      color: #cc3333;
+      border-radius: 12px;
+      padding: 2px 12px;
+      font-size: 13px;
+      font-weight: 500;
+      border: 1px solid #ffeaea;
+      display: inline-block;
+    }
+
+    .job-description {
+      font-size: 13px;
+      margin-top: 6px;
+      line-height: 1.6;
+      padding-left: 0;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      white-space: pre-wrap;
+    }
+
+    .job-description ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .job-description li {
+      margin-bottom: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <div class="name">{{personalInfo.name}}</div>
+      <div class="title">{{personalInfo.title}}</div>
+
+      <div class="section-title">Contact Info</div>
+      <ul>
+        {{#if personalInfo.location}}<li>{{personalInfo.location}}</li>{{/if}}
+        {{#if personalInfo.email}}<li>{{personalInfo.email}}</li>{{/if}}
+        {{#if personalInfo.phone}}<li>{{personalInfo.phone}}</li>{{/if}}
+        {{#if personalInfo.linkedin}}<li><a href="{{personalInfo.linkedin}}" target="_blank">{{personalInfo.linkedin}}</a></li>{{/if}}
+        {{#if personalInfo.website}}<li><a href="{{personalInfo.website}}" target="_blank">{{personalInfo.website}}</a></li>{{/if}}
+        {{#if personalInfo.github}}<li><a href="{{personalInfo.github}}" target="_blank">{{personalInfo.github}}</a></li>{{/if}}
+      </ul>
+
+      {{#if skills}}
+      <div class="section-title">Skills</div>
+      {{#each skills}}
+      <div class="skills-group">
+        <div class="skills-category-row">
+          <div class="skills-category">{{category}}</div>
+          {{#if level}}<span class="skills-level">{{level}}</span>{{/if}}
+        </div>
+        {{#if description}}<div class="skills-desc">{{{richText description}}}</div>{{/if}}
+        <ul class="skills-items">
+          {{#each items}}<li class="skills-item-tag">{{this}}</li>{{/each}}
+        </ul>
+      </div>
+      {{/each}}
+      {{/if}}
+    </div>
+
+    <div class="main">
+      <div class="summary">{{{richText summary}}}</div>
+
+      {{#if experience}}
+      <div class="section-title">Work Experience</div>
+      {{#each experience}}
+      <div class="work-item">
+        <div class="company">{{company}}</div>
+        <div class="position">{{position}}</div>
+        <div class="date">{{startDate}} – {{endDate}}{{#if current}} - Current{{/if}}</div>
+        {{#if location}}<div style="font-size: 12px; color: var(--muted-color);">{{location}}</div>{{/if}}
+        {{#if description}}<div class="job-description">{{{richText description}}}</div>{{/if}}
+      </div>
+      {{/each}}
+      {{/if}}
+
+      {{#if education}}
+      <div class="section-title">Education</div>
+      {{#each education}}
+      <div class="work-item">
+        <div class="edu-title">{{institution}}</div>
+        <div class="edu-sub">{{degree}} | {{startDate}} – {{endDate}}{{#if gpa}} | GPA: {{gpa}}{{/if}}</div>
+        {{#if location}}<div style="font-size: 12px; color: var(--muted-color);">{{location}}</div>{{/if}}
+        {{#if description}}<div class="job-description">{{{richText description}}}</div>{{/if}}
+      </div>
+      {{/each}}
+      {{/if}}
+
+      {{#if projects}}
+      <div class="section-title">Projects</div>
+      {{#each projects}}
+      <div class="work-item">
+        <div class="company">{{title}}</div>
+        <div class="position">{{{richText description}}}</div>
+        <div class="date">{{startDate}} – {{endDate}}</div>
+        {{#if technologies}}<div style="font-size: 12px; color: var(--muted-color);">Technologies: {{#each technologies}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}</div>{{/if}}
+        {{#if url}}<div><a href="{{url}}" target="_blank">Demo</a></div>{{/if}}
+        {{#if github}}<div><a href="{{github}}" target="_blank">GitHub</a></div>{{/if}}
+      </div>
+      {{/each}}
+      {{/if}}
+
+      {{#if awards}}
+      <div class="section-title">Awards & Certifications</div>
+      {{#each awards}}
+      <div class="work-item">
+        <div class="company">{{title}}</div>
+        <div class="position">{{issuer}}</div>
+        <div class="date">{{dateReceived}}{{#if expiryDate}} - {{expiryDate}}{{/if}}</div>
+        {{#if description}}<div class="job-description">{{{richText description}}}</div>{{/if}}
+        {{#if verificationUrl}}<div><a href="{{verificationUrl}}" target="_blank">Verify</a></div>{{/if}}
+      </div>
+      {{/each}}
+      {{/if}}
+
+      {{#if languages}}
+      <div class="section-title">Languages</div>
+      {{#each languages}}
+      <div class="work-item">
+        <div class="company">{{language}}</div>
+        <div class="position">{{level}}{{#if certification}} | {{certification}}{{#if score}} - {{score}}{{/if}}{{/if}}</div>
+        {{#if description}}<div class="job-description">{{{richText description}}}</div>{{/if}}
+      </div>
+      {{/each}}
+      {{/if}}
+
+      {{#if interests}}
+      <div class="section-title">Interests</div>
+      {{#each interests}}
+      <div class="work-item">
+        <div class="company">{{category}}</div>
+        {{#if items}}<div style="font-size: 12px; color: var(--muted-color);">{{#each items}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}</div>{{/if}}
+        {{#if description}}<div class="job-description">{{{richText description}}}</div>{{/if}}
+      </div>
+      {{/each}}
+      {{/if}}
+
+      {{#if courses}}
+      <div class="section-title">Courses & Training</div>
+      {{#each courses}}
+      <div class="work-item">
+        <div class="company">{{title}}</div>
+        <div class="position">{{provider}} | {{duration}}</div>
+        <div class="date">{{completionDate}}</div>
+        {{#if description}}<div class="job-description">{{{richText description}}}</div>{{/if}}
+        {{#if certificateUrl}}<div><a href="{{certificateUrl}}" target="_blank">Certificate</a></div>{{/if}}
+      </div>
+      {{/each}}
+      {{/if}}
+
+      {{#if organizations}}
+      <div class="section-title">Organizations</div>
+      {{#each organizations}}
+      <div class="work-item">
+        <div class="company">{{name}}</div>
+        <div class="position">{{role}}</div>
+        <div class="date">{{startDate}}{{#if endDate}} - {{endDate}}{{/if}}{{#if current}} - Current{{/if}}</div>
+        {{#if description}}<div class="job-description">{{{richText description}}}</div>{{/if}}
+      </div>
+      {{/each}}
+      {{/if}}
+
+      {{#if publications}}
+      <div class="section-title">Publications</div>
+      {{#each publications}}
+      <div class="work-item">
+        <div class="company">{{title}}</div>
+        <div class="position">{{#each authors}}{{this}}{{#unless @last}}, {{/unless}}{{/each}} | {{venue}}</div>
+        <div class="date">{{date}}</div>
+        {{#if doi}}<div style="font-size: 12px; color: var(--muted-color);">DOI: {{doi}}</div>{{/if}}
+        {{#if description}}<div class="job-description">{{{richText description}}}</div>{{/if}}
+        {{#if url}}<div><a href="{{url}}" target="_blank">Read</a></div>{{/if}}
+      </div>
+      {{/each}}
+      {{/if}}
+
+      {{#if references}}
+      <div class="section-title">References</div>
+      {{#each references}}
+      <div class="work-item">
+        <div class="company">{{name}}</div>
+        <div class="position">{{title}} at {{company}}</div>
+        <div style="font-size: 12px; color: var(--muted-color);">{{email}}{{#if phone}} | {{phone}}{{/if}}</div>
+        {{#if relationship}}<div style="font-size: 12px; color: var(--muted-color);">{{relationship}}</div>{{/if}}
+      </div>
+      {{/each}}
+      {{/if}}
+
+      {{#if customSections}}
+      {{#each customSections}}
+      <div class="section-title">{{title}}</div>
+      <div class="work-item">
+        <div class="company">{{subtitle}}</div>
+        <div class="summary">{{{richText content}}}</div>
+        {{#if url}}<div><a href="{{url}}" target="_blank">Learn More</a></div>{{/if}}
+      </div>
+      {{/each}}
+      {{/if}}
+
+      {{#if declaration}}
+      <div class="section-title">Declaration</div>
+      <div class="work-item">
+        <div class="summary">{{{richText declaration.statement}}}</div>
+        <div style="font-size: 12px; color: var(--muted-color); margin-top: 10px;">
+          Place: {{declaration.place}} | Date: {{declaration.date}}
+        </div>
+        <div style="font-size: 12px; color: var(--main-color); margin-top: 5px;">Signature: {{declaration.signature}}</div>
+      </div>
+      {{/if}}
+    </div>
+  </div>
+</body>
+</html>

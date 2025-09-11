@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{personalInfo.name}} - CV</title>
+      <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800;900&family=Material+Symbols+Outlined" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+{{generateCustomCSS theme cvId}}
+        
+        /* Custom CSS from frontend */
+        {{#if customCSS}}
+        {{customCSS}}
+        {{/if}}
+</style>
+    <style>
+    :root {
+      /* Font Families */
+      --theme-font-primary: {{theme.css.fonts.primary}};
+      --theme-font-heading: {{theme.css.fonts.heading}};
+      --theme-font-monospace: {{theme.css.fonts.monospace}};
+      
+      /* Font Sizes */
+      --theme-font-size-base: {{theme.css.fontSizes.base}};
+      --theme-font-size-small: {{theme.css.fontSizes.small}};
+      --theme-font-size-large: {{theme.css.fontSizes.large}};
+      --theme-font-size-heading: {{theme.css.fontSizes.heading}};
+      --theme-font-size-sectionTitle: {{theme.css.fontSizes.sectionTitle}};
+      --theme-font-size-itemTitle: {{theme.css.fontSizes.itemTitle}};
+      --theme-font-size-body: {{theme.css.fontSizes.body}};
+      --theme-font-size-h1: {{theme.css.fontSizes.h1}};
+      --theme-font-size-h2: {{theme.css.fontSizes.h2}};
+      
+      /* Font Weights */
+      --theme-font-weight-normal: {{theme.css.fontWeights.normal}};
+      --theme-font-weight-bold: {{theme.css.fontWeights.bold}};
+      --theme-font-weight-medium: {{theme.css.fontWeights.medium}};
+      
+      /* Colors */
+      --theme-color-primary: {{theme.css.colors.primary}};
+      --theme-color-secondary: {{theme.css.colors.secondary}};
+      --theme-color-background: {{theme.css.colors.background}};
+      --theme-color-surface: {{theme.css.colors.surface}};
+      --theme-color-accent: {{theme.css.colors.accent}};
+      --theme-color-text: {{theme.css.colors.text}};
+      --theme-color-muted: {{theme.css.colors.muted}};
+      
+      /* Spacing */
+      --theme-spacing-lineHeight: {{theme.css.spacing.lineHeight}};
+      --theme-spacing-section: {{theme.css.spacing.section}};
+      --theme-spacing-item: {{theme.css.spacing.item}};
+      --theme-spacing-container: {{theme.css.spacing.container}};
+      --theme-spacing-line: {{theme.css.spacing.line}};
+      
+      /* Legacy variables for compatibility */
+      --primary: var(--theme-color-primary);
+      --secondary: var(--theme-color-secondary);
+      --bg: var(--theme-color-background);
+      --card: var(--theme-color-surface);
+      --text: var(--theme-color-text);
+      --muted: var(--theme-color-muted);
+      --border-radius: 24px;
+      --shadow: 0 4px 24px rgba(160, 195, 162, 0.15);
+      --timeline: var(--theme-color-secondary);
+      --badge-bg: var(--theme-color-secondary);
+      --badge-text: var(--theme-color-primary);
+      --icon-bg: var(--theme-color-secondary);
+      --icon-text: var(--theme-color-primary);
+    }
+    html, body {
+      /* background: var(--bg); */
+      color: var(--text);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+    }
+
+    body::-webkit-scrollbar {
+      display: none;
+    }
+    .cv-container {
+      /* max-width: 900px; */
+      margin: 40px auto;
+      /* background: var(--bg); */
+      /* border-radius: var(--border-radius); */
+      /* box-shadow: var(--shadow); */
+      padding: 20px 30px 0 35px;
+    }
+    .header-card {
+      background: var(--card);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      padding: 32px 32px 24px 32px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+    .avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 6px solid var(--bg);
+      background: var(--bg);
+    }
+    .header-info {
+      flex: 1;
+    }
+    .main-title {
+      font-size: 25px;
+      font-weight: 900;
+      color: var(--primary);
+      line-height: 1.1;
+    }
+
+    .name-title{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .role-badge {
+      display: inline-block;
+      background: var(--secondary);
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.93em;
+      border-radius: 18px;
+      padding: 5px 15px;
+      margin-left: 10px;
+      letter-spacing: 1px;
+    }
+    .contact-row {
+      display: flex;
+      gap: 18px;
+      margin: 12px 0 18px 0;
+      flex-wrap: wrap;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--icon-bg);
+      color: var(--icon-text);
+      border-radius: 50px;
+      padding: 6px 16px;
+      font-size: 0.98em;
+      font-weight: 500;
+    }
+
+    .contact-item a{
+      color: var(--icon-text);
+    }
+
+    .header-summary {
+      color: var(--text);
+      font-size: 1.05em;
+      margin-bottom: 0;
+    }
+    .card {
+      break-inside: auto !important;
+      page-break-inside: auto !important;
+      margin-bottom: 28px;
+    }
+    .section-title {
+      color: var(--primary);
+      font-size: 1em;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    /* Timeline */
+    .timeline {
+      position: relative;
+      margin-left: 0;
+      padding-left: 18px;
+      border-left: 3px solid var(--timeline);
+    }
+    .timeline-item {
+      margin-bottom: 32px;
+    }
+    .timeline-row {
+      position: relative;
+      display: flex;
+      align-items: center;
+      margin-bottom: 6px;
+      min-height: 16px;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: -26px;
+      top: 28%;
+      transform: translateY(-50%);
+      width: 13px;
+      height: 13px;
+      background: var(--timeline);
+      border-radius: 50%;
+      margin: 0;
+      flex-shrink: 0;
+      border: none;
+      box-shadow: none;
+    }
+
+    .timeline-dot-end {
+      position: absolute;
+      left: -26px;
+      bottom: -35%;
+      transform: translateY(-50%);
+      width: 13px;
+      height: 13px;
+      background: var(--timeline);
+      border-radius: 50%;
+      margin: 0;
+      flex-shrink: 0;
+      border: none;
+      box-shadow: none;
+    }
+
+    .timeline-date {
+      margin-left: 14px;
+      background: var(--secondary);
+      color: var(--primary);
+      border-radius: 18px;
+      padding: 3px 13px;
+      font-size: 0.92em;
+      font-weight: 600;
+      display: inline-block;
+    }
+    .timeline-title {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 0.98em;
+      margin-bottom: 2px;
+    }
+    .timeline-org {
+      color: var(--muted);
+      font-size: 0.98em;
+      margin-bottom: 4px;
+    }
+    .timeline-desc {
+      color: black;
+      font-size: 0.98em;
+      margin-bottom: 0;
+    }
+    .timeline-row-end {
+      min-height: 20px;
+    }
+    /* Skills & Badges */
+    .badge-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .badge {
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      border-radius: 18px;
+      padding: 4px 13px;
+      font-size: 0.92em;
+      font-weight: 600;
+      display: inline-block;
+      letter-spacing: 0.5px;
+    }
+    /* Education, Hobbies, Achievement */
+    .edu-title {
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.95em;
+      margin-bottom: 2px;
+    }
+    .edu-meta {
+      color: black;
+      font-size: 0.98em;
+      margin-bottom: 10px;
+    }
+    
+    .edu-date, .project-date, .award-date, .work-date, .pub-date, .declaration-date, .course-date {
+      color: black;
+      font-size: 0.98em;
+      margin-bottom: 10px;
+    }
+    .hobby-list {
+      display: flex;
+      gap: 18px;
+      margin-top: 8px;
+    }
+    .hobby-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: var(--primary);
+      font-size: 0.92em;
+    }
+    .hobby-icon {
+      background: var(--secondary);
+      color: var(--primary);
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3em;
+      margin-bottom: 2px;
+    }
+    .achievement-title {
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.95em;
+      margin-bottom: 2px;
+    }
+    .achievement-meta {
+      color: var(--muted);
+      font-size: 0.98em;
+      margin-bottom: 2px;
+    }
+    /* Info Card */
+    .info-card {
+      background: var(--secondary);
+      color: var(--primary);
+      border-radius: 18px;
+      padding: 13px 15px;
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      margin-top: 18px;
+      font-size: 0.92em;
+      font-weight: 600;
+    }
+    .info-icon {
+      background: var(--primary);
+      color: #fff;
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3em;
+      margin-right: 10px;
+    }
+    .main-content-single {
+      width: 100%;
+      margin-top: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 10px;
+    }
+    .project-card {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: -2px 2px 0px var(--secondary);
+      padding: 10px 15px;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+    .publication-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 10px;
+    }
+    .publication-card {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: -2px 2px 0px var(--secondary);
+
+      padding: 10px 15px;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+    .organization-name-role{
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+    }
+
+    /* Rich Text Elements */
+    .header-summary h4, .header-summary h5, .header-summary h6,
+    .edu-meta h4, .edu-meta h5, .edu-meta h6,
+    .timeline-desc h4, .timeline-desc h5, .timeline-desc h6 {
+        font-weight: 600;
+        margin: 8px 0 4px 0;
+        color: inherit;
+        font-size: inherit;
+    }
+
+    .header-summary h4, .edu-meta h4, .timeline-desc h4 {
+        font-size: 1.2em;
+    }
+
+    .header-summary h5, .edu-meta h5, .timeline-desc h5 {
+        font-size: 1.1em;
+    }
+
+    .header-summary h6, .edu-meta h6, .timeline-desc h6 {
+        font-size: 1em;
+    }
+
+    .header-summary code, .edu-meta code, .timeline-desc code {
+        background: var(--secondary);
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-family: 'Courier New', monospace;
+        font-size: 1.1em;
+        border: 1px solid var(--primary);
+        color: inherit;
+        text-wrap-mode: wrap;
+    }
+
+    .header-summary blockquote, .edu-meta blockquote, .timeline-desc blockquote {
+        border-left: 3px solid var(--primary);
+        padding-left: 12px;
+        margin: 8px 0;
+        font-style: italic;
+        color: inherit;
+        opacity: 0.8;
+        text-wrap-mode: wrap;
+    }
+
+    .header-summary ul, .header-summary ol,
+    .edu-meta ul, .edu-meta ol,
+    .timeline-desc ul, .timeline-desc ol {
+        margin: 8px 0 8px 20px;
+        padding: 0;
+    }
+
+    .header-summary li, .edu-meta li, .timeline-desc li {
+        margin: 4px 0;
+        font-size: inherit;
+        color: inherit;
+    }
+
+    .header-summary a, .edu-meta a, .timeline-desc a {
+        color: inherit;
+        text-decoration: underline;
+    }
+
+    .header-summary strike, .edu-meta strike, .timeline-desc strike {
+        text-decoration: line-through;
+        color: inherit;
+        opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <div class="cv-container">
+    <!-- Main Content -->
+    <div class="main-content-single">
+      <div class="card">
+        <div style="display: flex; align-items: center; gap: 32px; margin-bottom: 18px;">
+          {{#if personalInfo.avatar}}
+          <img class="avatar" src="{{personalInfo.avatar}}" alt="avatar" />
+          {{/if}}
+          <div class="header-info">
+            <div class="name-title">
+              <span class="main-title">Hi! I'm {{personalInfo.name}}</span>
+              {{#if personalInfo.title}}
+              <span class="role-badge">{{personalInfo.title}}</span>
+              {{/if}}
+            </div>
+            <div class="contact-row">
+              {{#if personalInfo.email}}
+              <div class="contact-item"><span class="material-symbols-outlined">mail</span>{{personalInfo.email}}</div>
+              {{/if}}
+              {{#if personalInfo.website}}
+              <div class="contact-item"><span class="material-symbols-outlined">language</span><a href="{{personalInfo.website}}" target="_blank">{{personalInfo.website}}</a></div>
+              {{/if}}
+              {{#if personalInfo.linkedin}}
+              <div class="contact-item"><span class="material-symbols-outlined">work</span><a href="{{personalInfo.linkedin}}" target="_blank">{{personalInfo.linkedin}}</a></div>
+              {{/if}}
+              {{#if personalInfo.github}}
+              <div class="contact-item"><span class="material-symbols-outlined">code</span><a href="{{personalInfo.github}}" target="_blank">{{personalInfo.github}}</a></div>
+              {{/if}}
+              {{#if personalInfo.phone}}
+              <div class="contact-item"><span class="material-symbols-outlined">call</span>{{personalInfo.phone}}</div>
+              {{/if}}
+              {{#if personalInfo.location}}
+              <div class="contact-item"><span class="material-symbols-outlined">location_on</span>{{personalInfo.location}}</div>
+              {{/if}}
+            </div>
+            {{#if summary}}
+            <div class="header-summary">{{{richText summary}}}</div>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+      {{#if education}}
+      <div class="card">
+        <div class="section-title">Education</div>
+        {{#each education}}
+        <div class="edu-title">{{institution}} – {{location}}</div>
+        <div class="edu-date">
+          {{#if current}}
+            {{startDate}}<span class="role-badge">Current</span>
+          {{else}}
+            {{#if endDate}}
+              {{startDate}} - {{endDate}}
+            {{else}}
+              {{startDate}}
+            {{/if}}
+          {{/if}}
+        </div>
+        <div class="edu-meta">{{degree}} / GPA: {{gpa}}</div>
+        {{#if description}}<div class="edu-meta">{{{richText description}}}</div>{{/if}}
+        {{/each}}
+      </div>
+      {{/if}}
+      {{#if skills}}
+      <div class="card">
+        <div class="section-title">Skills & Expertise</div>
+        {{#each skills}}
+        <div style="margin-bottom: 12px;">
+          <div class="edu-title">{{category}}</div>
+          {{#if level}}<div class="edu-meta">Level: {{level}}</div>{{/if}}
+          <div class="badge-list">
+            {{#each items}}
+              <span class="badge">{{this}}</span>
+            {{/each}}
+          </div>
+          {{#if description}}<div class="edu-meta">{{{richText description}}}</div>{{/if}}
+        </div>
+        {{/each}}
+      </div>
+      {{/if}}
+      {{#if languages}}
+      <div class="card">
+        <div class="section-title">Languages</div>
+        {{#each languages}}
+        <div style="margin-bottom: 10px;">
+          <span class="edu-title">{{language}}</span>
+          <span class="edu-meta">Level: {{level}}{{#if certification}} | Cert: {{certification}}{{/if}}{{#if score}} | Score: {{score}}{{/if}}</span>
+          <div class="edu-meta">{{{richText description}}}</div>
+        </div>
+        {{/each}}
+      </div>
+      {{/if}}
+      {{#if interests}}
+      <div class="card">
+        <div class="section-title">Interests & Hobbies</div>
+        {{#each interests}}
+        <div style="margin-bottom: 10px;">
+          <div class="edu-title">{{category}}</div>
+          <div class="badge-list">
+            {{#each items}}<span class="badge">{{this}}</span>{{/each}}
+          </div>
+          {{#if description}}<div class="edu-meta">{{{richText description}}}</div>{{/if}}
+        </div>
+        {{/each}}
+      </div>
+      {{/if}}
+      {{#if experience}}
+      <div class="card">
+        <div class="section-title">Work Experiences</div>
+        <div class="timeline">
+          {{#each experience}}
+          <div class="timeline-item">
+            <div class="timeline-row">
+              <span class="timeline-dot"></span>
+              <span class="timeline-date">
+                {{#if current}}
+                  {{startDate}}
+                {{else}}
+                  {{#if endDate}}
+                    {{startDate}} - {{endDate}}
+                  {{else}}
+                    {{startDate}}
+                  {{/if}}
+                {{/if}}
+              </span>
+            </div>
+            <div class="timeline-title">{{position}} {{#if current}}<span class="role-badge" style="background: #43a047; color: #fff; font-size: 0.85em; margin-left: 8px;">Current</span>{{/if}}</div>
+            <div class="timeline-org">{{company}}</div>
+            <div class="timeline-desc">{{{richText description}}}</div>
+            {{#if @last}}
+            <div class="timeline-row timeline-row-end">
+              <span class="timeline-dot-end"></span>
+            </div>
+            {{/if}}
+          </div>
+          {{/each}}
+        </div>
+      </div>
+      {{/if}}
+      {{#if projects}}
+      <div class="card">
+        <div class="section-title">Projects</div>
+        <div class="project-grid">
+          {{#each projects}}
+          <div class="project-card">
+            <div class="edu-title">{{title}}</div>
+            <div class="project-date">
+              {{#if current}}
+                {{startDate}}<span class="role-badge">Current</span>
+              {{else}}
+                {{#if endDate}}
+                  {{startDate}} - {{endDate}}
+                {{else}}
+                  {{startDate}}
+                {{/if}}
+              {{/if}}
+            </div>
+            <div class="edu-meta">{{{richText description}}}</div>
+            <div class="badge-list">
+              {{#each technologies}}<span class="badge">{{this}}</span>{{/each}}
+            </div>
+            <div class="badge-list">
+              {{#if url}}<a href="{{url}}" target="_blank" style="font-size:12px;text-decoration:underline;color:var(--primary);margin-right:10px;"><span class="material-icons" style="font-size:20px;vertical-align:middle;margin-right:3px;">link</span>Demo</a>{{/if}}
+              {{#if github}}<a href="{{github}}" target="_blank" style="font-size:12px;text-decoration:underline;color:var(--primary);margin-right:10px;"><span class="material-icons" style="font-size:20px;vertical-align:middle;margin-right:3px;">code</span>GitHub</a>{{/if}}
+            </div>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+      {{/if}}
+      {{#if awards}}
+      <div class="card">
+        <div class="section-title">Awards & Certifications</div>
+        {{#each awards}}
+        <div style="margin-bottom: 14px;">
+          <div class="edu-title">{{title}}</div>
+          <div class="award-date">{{issuer}} | {{dateReceived}}
+            {{#if current}}
+              <span class="role-badge">Current</span>
+            {{else}}
+              {{#if expiryDate}}
+                - {{expiryDate}}
+              {{else}}
+                {{dateReceived}}
+              {{/if}}
+                          {{/if}}</div>
+          <div class="edu-meta">{{{richText description}}}</div>
+          {{#if verificationUrl}}<div class="badge-list"><a href="{{verificationUrl}}" target="_blank" style="font-size:12px;text-decoration:underline;color:var(--primary);margin-right:10px;"><span class="material-icons" style="font-size:20px;vertical-align:middle;margin-right:3px;">verified</span>Verify</a></div>{{/if}}
+        </div>
+        {{/each}}
+      </div>
+      {{/if}}
+      {{#if courses}}
+      <div class="card">
+        <div class="section-title">Courses & Training</div>
+        {{#each courses}}
+        <div style="margin-bottom: 10px;">
+          <span class="edu-title">{{title}}</span>
+          <span class="course-date">
+            {{provider}} | {{duration}} | {{completionDate}}
+          </span>
+          {{#if certificateUrl}}<span class="badge-list"><a href="{{certificateUrl}}" target="_blank" style="font-size:12px;text-decoration:underline;color:var(--primary);margin-right:10px;"><span class="material-icons" style="font-size:20px;vertical-align:middle;margin-right:3px;">school</span>Certificate</a></span>{{/if}}
+          <div class="edu-meta">{{{richText description}}}</div>
+        </div>
+        {{/each}}
+      </div>
+      {{/if}}
+      {{#if organizations}}
+      <div class="card">
+        <div class="section-title">Organizations</div>
+        {{#each organizations}}
+        <div style="margin-bottom: 10px;">
+          <div class="organization-name-role">
+            <div class="organization-role">{{role}}</div>
+            {{#if current}}<span class="current-badge">Current</span>{{/if}}
+            <div class="organization-name">{{name}}</div>
+          </div>
+          <span class="work-date">
+            {{#if current}}
+              {{role}} | {{startDate}}<span class="role-badge">Current</span>
+            {{else}}
+              {{role}} | {{#if endDate}}
+                {{startDate}} - {{endDate}}
+              {{else}}
+                {{startDate}}
+              {{/if}}
+            {{/if}}
+          </span>
+          <div class="edu-meta">{{{richText description}}}</div>
+        </div>
+        {{/each}}
+      </div>
+      {{/if}}
+      {{#if publications}}
+      <div class="card">
+        <div class="section-title">Publications</div>
+        <div class="publication-grid">
+          {{#each publications}}
+          <div class="publication-card">
+            <div class="edu-title">{{title}}</div>
+            <div class="pub-date">
+              {{authors}} | {{venue}} | {{date}}
+            </div>
+            <div class="badge-list">
+              {{#if doi}}<a href="{{doi}}" target="_blank" style="font-size:12px;text-decoration:underline;color:var(--primary);margin-right:10px;"><span class="material-icons" style="font-size:20px;vertical-align:middle;margin-right:3px;">description</span>DOI</a>{{/if}}
+              {{#if url}}<a href="{{url}}" target="_blank" style="font-size:12px;text-decoration:underline;color:var(--primary);margin-right:10px;"><span class="material-icons" style="font-size:20px;vertical-align:middle;margin-right:3px;">visibility</span>View</a>{{/if}}
+            </div>
+            <div class="edu-meta">{{{richText description}}}</div>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+      {{/if}}
+      {{#if references}}
+      <div class="card">
+        <div class="section-title">References</div>
+        {{#each references}}
+        <div style="margin-bottom: 10px;">
+          <span class="edu-title">{{name}}</span>
+          <span class="edu-meta">{{jobTitle}} at {{company}}</span>
+          <span class="edu-meta">Email: {{email}}{{#if phone}} | Phone: {{phone}}{{/if}}</span>
+          {{#if relationship}}<span class="edu-meta">Relationship: {{relationship}}</span>{{/if}}
+        </div>
+        {{/each}}
+      </div>
+      {{/if}}
+      {{#if customSections}}
+      {{#each customSections}}
+      <div class="card">
+        <div class="section-title">{{title}}</div>
+        {{#if subtitle}}<div class="edu-meta">{{subtitle}}</div>{{/if}}
+        <div class="edu-meta">{{{richText content}}}</div>
+        {{#if url}}<div class="badge-list"><a href="{{url}}" target="_blank" style="font-size:12px;text-decoration:underline;color:var(--primary);margin-right:10px;"><span class="material-icons" style="font-size:20px;vertical-align:middle;margin-right:3px;">open_in_new</span>More</a></div>{{/if}}
+      </div>
+      {{/each}}
+      {{/if}}
+      {{#if declaration}}
+      <div class="card">
+        <div class="section-title">Declaration</div>
+        <div class="edu-meta">{{declaration.statement}}</div>
+        <div class="declaration-date">Place: {{declaration.place}} | Date: {{date}}</div>
+        <div class="edu-meta">Signature: {{declaration.signature}}</div>
+      </div>
+      {{/if}}
+    </div>
+  </div>
+</body>
+</html> 
