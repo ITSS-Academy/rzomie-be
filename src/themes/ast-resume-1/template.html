@@ -282,14 +282,7 @@
             color: var(--theme-color-accent);
             text-decoration: none;
         }
-        
-        /* Custom CSS - injected after CSS variables for higher priority */
-        {{generateCustomCSS theme cvId}}
-        
-        /* Custom CSS from frontend */
-        {{#if customCSS}}
-        {{customCSS}}
-        {{/if}}
+    
     </style>
 </head>
 <body>

@@ -178,4 +178,41 @@ export class CvService {
     }
     return data;
   }
+
+  async getAllBaseCvs() {
+    const { data, error } = await this.supabaseService.supabase
+      .from('base-theme')
+      .select('*');
+    if (error) {
+      throw new HttpException(
+        `Error fetching all base CVs: ${error.message}`,
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+    return data;
+  }
+
+  async createNewCv(cvTheme: string, cvName: string, userId: string) {
+    const { data: insertData, error: insertError } = await this.supabaseService.supabase
+      .from('cv-data')
+      .insert([
+        {
+          cvName,
+          cvTheme,
+          userId,
+          create_date: new Date(),
+          update_time: new Date(),
+        },
+      ])
+      .select()
+      .single();
+      
+    if (insertError) {
+      throw new HttpException(
+        `Error creating new CV: ${insertError.message}`,
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+    return insertData;
+  }
 }

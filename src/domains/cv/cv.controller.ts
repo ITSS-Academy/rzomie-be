@@ -37,6 +37,11 @@ async exportPdf(@Body() data: any, @Res() res: any) {
   }
 }
 
+@Post('/create')
+  create(@Body() createCvDto: any, @Req() req: any) {
+    return this.cvService.createNewCv(createCvDto.cvTheme, createCvDto.cvName, req.user.uid);
+  }
+
   @Get('/get-all-cv-data')
   getAllCvData(@Req() req: any) {
     return this.cvService.getAllCvData(req.user.uid);
@@ -45,6 +50,11 @@ async exportPdf(@Body() data: any, @Res() res: any) {
   @Get('/get-default-cvs')
   getDefaultCvs() {
     return this.cvService.getBaseCvs();
+  }
+
+  @Get('/get-themes')
+  getThemes() {
+    return this.cvService.getAllBaseCvs();
   }
 
   @Get(':id')
