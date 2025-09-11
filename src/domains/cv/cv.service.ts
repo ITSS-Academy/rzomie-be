@@ -15,15 +15,15 @@ export class CvService {
     registerHandlebarsHelpers();
   }
 
-  async renderCvHtml(createCvDto: any, id: number): Promise<string> {
+  async renderCvHtml(createCvDto: any, id: number, cvTheme: string): Promise<string> {
     let theme!: any;
     let html!: any;
 
-    const template = await loadThemeHtml('pastel-green');
+    const template = await loadThemeHtml(cvTheme);
     const compiled = Handlebars.compile(template);
 
     if (!createCvDto.theme) {
-      theme = await loadThemeConfig('pastel-green');
+      theme = await loadThemeConfig(cvTheme);
       html = compiled({
         ...createCvDto,
         theme,
@@ -63,8 +63,8 @@ export class CvService {
           .storage
           .from('cv-images')
           .upload(fileName, screenshot, {
-            contentType: 'image/jpeg',
-            upsert: true
+            contentType: 'image/png',
+            upsert: true,
           });
           
         if (uploadError) {
@@ -78,13 +78,15 @@ export class CvService {
           console.log(urlData);
 
           // Update the CV record with the thumbnail URL
-          await this.supabaseService.supabase
+          if (urlData.publicUrl) {
+            await this.supabaseService.supabase
             .from('cv-data')
             .update({
               thumbnailUrl: urlData.publicUrl,
               update_time: new Date(),
             })
             .eq('id', id);
+          }
         }
       } catch (error) {
         // Log error but don't interrupt the main CV rendering process
