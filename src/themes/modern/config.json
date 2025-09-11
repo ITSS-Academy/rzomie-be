@@ -1,0 +1,201 @@
+{
+  "name": "modern",
+  "displayName": "Modern Blue",
+  "description": "Clean and compact modern design with efficient space usage, subtle gradients, and professional typography",
+  "author": "FormCV",
+  "version": "1.0.0",
+  "preview": "modern-preview.png",
+  "category": "professional",
+  "sectionOrder": [
+    "personal",
+    "summary",
+    "experience",
+    "education",
+    "skills",
+    "projects",
+    "languages",
+    "awards",
+    "courses",
+    "organizations",
+    "publications",
+    "interests",
+    "references",
+    "customSections",
+    "declaration"
+  ],
+  "css": {
+    "fonts": {
+      "primary": "Inter, sans-serif",
+      "heading": "Inter, sans-serif",
+      "monospace": "Courier New, monospace"
+    },
+    "fontSizes": {
+      "base": "14px",
+      "small": "13px",
+      "large": "17px",
+      "heading": "26px",
+      "sectionTitle": "19px",
+      "itemTitle": "16px",
+      "body": "14px",
+      "h1": "26px",
+      "h2": "19px"
+    },
+    "fontWeights": {
+      "normal": 400,
+      "bold": 700,
+      "medium": 500
+    },
+    "colors": {
+      "primary": "#1f2937",
+      "secondary": "#6b7280",
+      "background": "#ffffff",
+      "surface": "#ffffff",
+      "accent": "#3b82f6",
+      "text": "#0f172a",
+      "muted": "#6b7280"
+    },
+    "defaultSelectedElements": [],
+    "defaultAppliedColors": {},
+    "elementColors": {},
+    "spacing": {
+      "lineHeight": "1.5",
+      "section": "25px",
+      "item": "20px",
+      "container": "15mm",
+      "line": "1.5"
+    },
+    "padding": {
+      "container": "15mm"
+    },
+    "customization": {
+      "fontSize": {
+        "type": "relative",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "default": 0,
+        "unit": "px",
+        "scaling": {
+          "enabled": true,
+          "description": "When font size is changed, all font sizes will be adjusted proportionally"
+        }
+      },
+      "fontWeight": {
+        "type": "absolute",
+        "min": 400,
+        "max": 800,
+        "step": 100,
+        "default": 400
+      },
+      "sectionSpacing": {
+        "type": "relative",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "default": 0,
+        "unit": "px"
+      },
+      "itemSpacing": {
+        "type": "relative",
+        "min": 0,
+        "max": 20,
+        "step": 1,
+        "default": 0,
+        "unit": "px"
+      },
+      "lineSpacing": {
+        "type": "relative",
+        "min": 1,
+        "max": 2.5,
+        "step": 0.1,
+        "default": 1.5,
+        "unit": "multiplier"
+      },
+      "accentColors": {
+        "availableElements": [
+          "Name",
+          "Headings",
+          "Header icons",
+          "Dots/Bars/Bubbles",
+          "Dates",
+          "Link icons"
+        ],
+        "defaultSelectedElements": [],
+        "defaultAppliedColors": {},
+        "elementColors": {},
+        "fontSize": "1px",
+        "fontWeight": 400,
+        "sectionSpacing": 0,
+        "itemSpacing": 0,
+        "lineSpacing": 1.5
+      }
+    }
+  },
+  "dateFormatConfig": {
+    "education": {
+      "availableFormats": [
+        "mm/dd/yyyy",
+        "mm/yyyy",
+        "yyyy"
+      ],
+      "defaultFormat": "mm/dd/yyyy"
+    },
+    "experience": {
+      "availableFormats": [
+        "mm/dd/yyyy",
+        "mm/yyyy",
+        "yyyy"
+      ],
+      "defaultFormat": "mm/dd/yyyy"
+    },
+    "projects": {
+      "availableFormats": [
+        "mm/dd/yyyy",
+        "mm/yyyy",
+        "yyyy"
+      ],
+      "defaultFormat": "mm/dd/yyyy"
+    },
+    "awards": {
+      "availableFormats": [
+        "mm/dd/yyyy",
+        "mm/yyyy",
+        "yyyy"
+      ],
+      "defaultFormat": "mm/dd/yyyy"
+    },
+    "organizations": {
+      "availableFormats": [
+        "mm/dd/yyyy",
+        "mm/yyyy",
+        "yyyy"
+      ],
+      "defaultFormat": "mm/dd/yyyy"
+    },
+    "publications": {
+      "availableFormats": [
+        "mm/dd/yyyy",
+        "mm/yyyy",
+        "yyyy"
+      ],
+      "defaultFormat": "mm/dd/yyyy"
+    },
+    "courses": {
+      "availableFormats": [
+        "mm/dd/yyyy",
+        "mm/yyyy",
+        "yyyy"
+      ],
+      "defaultFormat": "mm/dd/yyyy"
+    }
+  },
+  "dateFormat": {
+    "availableFormats": [
+      "mm/dd/yyyy",
+      "mm/yyyy",
+      "yyyy"
+    ],
+    "defaultFormat": "mm/dd/yyyy",
+    "description": "Date format options for CV display"
+  }
+}
