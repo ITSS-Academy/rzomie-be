@@ -17,7 +17,7 @@ export class CvController {
   @Post('/gen-theme')
   genTheme(@Body() data: any) {
     // Make sure to pass through any ID property for screenshot generation
-    return this.cvService.renderCvHtml(data.data.data);
+    return this.cvService.renderCvHtml(data.data.data, data.data.id);
   }
 
   @Post('/export-pdf')
