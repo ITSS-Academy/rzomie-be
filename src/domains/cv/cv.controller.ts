@@ -8,6 +8,7 @@ import {
   Put,
   Res,
   Delete,
+  ParseIntPipe,
 } from '@nestjs/common';
 import { CvService } from './cv.service';
 
@@ -41,6 +42,12 @@ async exportPdf(@Body() data: any, @Res() res: any) {
 @Post('/create')
   create(@Body() createCvDto: any, @Req() req: any) {
     return this.cvService.createNewCv(createCvDto.cvTheme, createCvDto.cvName, req.user.uid);
+  }
+
+  @Get("/get-shared-cv/:id")
+  getSharedCv(@Param('id', new ParseIntPipe()) id: number) {
+    console.log(id)
+    return this.cvService.getSharedCv(id);
   }
 
   @Get('/get-all-cv-data')

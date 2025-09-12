@@ -230,4 +230,21 @@ export class CvService {
     }
     return data;
   }
+
+  async getSharedCv(id: number) {
+    const { data, error } = await this.supabaseService.supabase
+      .from('cv-data')
+      .select('*')
+      .eq('id', id)
+      .single();
+
+    if (error) {
+      throw new HttpException(
+        `Error fetching shared CV with ID ${id}: ${error.message}`,
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+    console.log(data)
+    return data;
+  }
 }
