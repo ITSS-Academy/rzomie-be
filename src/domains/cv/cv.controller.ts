@@ -7,6 +7,7 @@ import {
   Req,
   Put,
   Res,
+  Delete,
 } from '@nestjs/common';
 import { CvService } from './cv.service';
 
@@ -68,5 +69,9 @@ async exportPdf(@Body() data: any, @Res() res: any) {
     return this.cvService.update(id, updateCvDto, req.user.uid);
   }
 
-  
+
+  @Delete(':id')
+  delete(@Param('id') id: number, @Req() req: any) {
+    return this.cvService.remove(id, req.user.uid);
+  }
 }

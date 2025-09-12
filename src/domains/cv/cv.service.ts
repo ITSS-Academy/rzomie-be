@@ -215,4 +215,19 @@ export class CvService {
     }
     return insertData;
   }
+
+  async remove(id: number, userId: string) {
+    const { data, error } = await this.supabaseService.supabase
+      .from('cv-data')
+      .delete()
+      .eq('id', id)
+      .eq('userId', userId);
+    if (error) {
+      throw new HttpException(
+        `Error deleting CV with ID ${id}: ${error.message}`,
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+    return data;
+  }
 }
